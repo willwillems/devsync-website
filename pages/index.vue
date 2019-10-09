@@ -8,9 +8,21 @@
 </template>
 
 <script>
+const dotties = {
+  '...': '.',
+  '.'  : '..',
+  '..' : '...'
+}
 
 export default {
-  components: {}
+  data() {
+    return {
+      dottie: '...'
+    }
+  },
+  mounted () {
+    window.setInterval(() => this.dottie = dotties[this.dottie], 1000)
+  }
 }
 </script>
 
@@ -31,7 +43,7 @@ export default {
 
 .title {
   display: block;
-  font-weight: 400;
+  font-weight: bolder;
   font-size: 24px;
   letter-spacing: 1px;
   font-family: 'Courier New', Courier, monospace;
