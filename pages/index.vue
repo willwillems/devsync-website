@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <h1 class="title">
-        DevSync coming soon...
+        DevSync coming soon {{ dottie }}
       </h1>
   </div>
 </template>
