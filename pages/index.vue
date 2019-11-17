@@ -70,10 +70,10 @@ export default {
   // background-image: radial-gradient(50% 17% at bottom, rgba(23,2,36,0.43) 0%, rgba(0,0,0,0.00) 83%)
 
   &__title
-    @apply text-5xl font-bold
+    @apply text-5xl leading-none font-bold m-1
 
   &__body
-    @apply text-xl text-gray-100 max-w-2xl
+    @apply text-xl text-gray-100 max-w-2xl m-1
   
   &__button
     @apply py-2 px-6 m-3 rounded-lg text-xl font-bold
