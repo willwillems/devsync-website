@@ -96,6 +96,9 @@ export default {
     right: 0;
     transform: translateX(calc(100% - 18vw))
 
+.section-cta
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
+
 .cta-card
   @apply flex flex-col justify-between py-6 px-10 rounded-lg text-left
   width: 48rem
