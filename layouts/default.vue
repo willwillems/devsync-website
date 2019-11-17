@@ -6,9 +6,9 @@
 
 <style>
 html {
-  background-color: #373737;
-  color: #EDEDED;
-  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #171717;
+  color: #FFFFFF;
+  font-family: 'SF Pro Text', Arial, 'Helvetica Neue', Roboto, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -23,5 +23,9 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SF Pro Display';
 }
 </style>
