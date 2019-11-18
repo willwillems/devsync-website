@@ -13,11 +13,11 @@
           h1.cta-card__title Get your DevSync licence <del>now</del> soon.
           p.cta-card__body  No hassle, 30 money back guarantee.
         form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
-          input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" )
+          input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
           // button.cta-card__button( type="submit" ) Get Notified!
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
-          input.cta-card__button( type="submit" value="Get Notified!" name="subscribe" id="mc-embedded-subscribe" class="button" )
+          input.cta-card__button( type="submit" value="Get Notified!" name="subscribe" id="mc-embedded-subscribe" )
 
 </template>
 
@@ -104,7 +104,7 @@ export default {
   width: 48rem
   max-width: 100%
   min-height: 12rem
-  background-image: linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%) //  linear-gradient(176deg, #000000 0%, #FAFAFA 100%, #FFFFFF 100%)
+  background-image: linear-gradient(176deg, #00000066 0%, #FAFAFA66 100%, #FFFFFF66 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
   box-shadow: 0 0 32px 0px #dbceb645
   margin: 32px
 
@@ -124,4 +124,10 @@ export default {
   &__button
     @apply py-2 px-4 m-2 bg-black text-gray-100 font-bold
     border-radius: 5px;
+
+    &:hover, &:focus
+      box-shadow: inset 0 0 0 2px white;
+
+    &:active
+      @apply bg-white text-gray-900
 </style>
