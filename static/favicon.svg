@@ -1,0 +1,9 @@
+
+<svg width="160px" height="160px" viewBox="0 0 160 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo">
+            <rect id="Background" x="0" y="0" width="160" height="160"></rect>
+            <path d="M120,40.0025799 L155,74 L135,74 L135,135 L25,135 L25,109.498952 L40,124.100584 L59.5392629,105 L105,105 L105,74 L85,74 L120,40.0025799 Z M135,25 L135,50.5010479 L120,35.8994162 L100.460737,55 L55,55 L55,86 L75,86 L40,119.99742 L5,86 L25,86 L25,25 L135,25 Z" id="Arrows" fill="#7CBBFF"></path>
+        </g>
+    </g>
+</svg>
