@@ -6,7 +6,7 @@
 
 <style>
 html {
-  background-color: #171717;
+  background-color: #0C0C0C;
   color: #FFFFFF;
   font-family: 'SF Pro Text', Arial, 'Helvetica Neue', Roboto, sans-serif;
   font-size: 16px;
