@@ -181,7 +181,7 @@ export default {
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
 
 .cta-card
-  @apply flex flex-col justify-between py-8 px-16 rounded-lg text-left
+  @apply flex flex-col justify-between py-10 px-12 rounded-lg text-left
   width: 64rem
   max-width: 100%
   background-image: url(/img/discount.svg), linear-gradient(176deg, #00000077 0%, #FAFAFA88 100%, #FFFFFF88 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
@@ -197,14 +197,14 @@ export default {
       text-decoration-color: #e33c3c
 
   &__body
-    @apply my-2 text-lg text-gray-100 font-semibold max-w-2xl
+    @apply mt-2 mb-4 text-lg text-gray-100 font-semibold max-w-2xl
 
   &__input
-    @apply my-2 py-2 px-6 bg-white text-gray-800 font-bold text-xl
+    @apply py-2 px-6 bg-white text-gray-800 font-bold text-xl
     border-radius: 5px;
 
   &__button
-    @apply py-2 px-6 m-2 bg-black text-gray-100 font-bold text-xl
+    @apply py-2 px-6 mx-4 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
 
     &:hover, &:focus
