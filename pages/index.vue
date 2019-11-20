@@ -1,16 +1,16 @@
 <template lang="pug">
   main
     section.section.section-hero( :style="heroOpacity" )
-      h1.section-hero__title Speed up development 10x
-      h2.section-hero__body Modern in-browser visual editor that live-syncs with your IDE. Speed up your development, try it out!
-      button.section-hero__button( @click="goToBuy" ) Download $79
+      h1.section-hero__title Visual design tool that live-sync's CSS edits with your editor.
+      h2.section-hero__body Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real time.
+      button.section-hero__button( @click="goToBuy" ) Try it out!
       p.section-hero__sub-text 30-Day Money-Back Guarantee
       img.section-hero__browser-img( src="img/browser-preview.png" alt="Browser preview" :style="browserPreviewSlide" )
       img.section-hero__editor-img( src="img/editor-preview.png" alt="Editor preview" :style="editorPreviewSlide" )
-    section.section.info-section( :style="`justify-content: flex-start; transform: translateY(-${offset}px);`" )
+    section.section.info-section
       .info-section__backdrop
-        h1.section__title Meet Webflow for engineers
-        h2.section__sub-title Edit webpacked CSS without switching context.
+        h1.section__title Speed up your workflow
+        h2.section__sub-title Edit processed CSS without switching context and save time.
         .flex.flex-row
           .demo-container( style="height: 80vh; margin-left: -50vw;" )
             img.info-section__demo( src="img/browser-demo.webp" alt="Browser demo")
@@ -38,7 +38,6 @@
           p.cta-card__body  No hassle, 30 money back guarantee.
         form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
           input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
-          // button.cta-card__button( type="submit" ) Get Notified!
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
           input.cta-card__button( type="submit" value="Get Notified!" name="subscribe" id="mc-embedded-subscribe" )
@@ -65,13 +64,13 @@ export default {
   },
   computed: {
     browserPreviewSlide () {
-      return `transform: translateX(calc(-100% + 18vw - ${this.offset > 200 ? 200 : this.offset * 2}px)); opacity: ${this.offset > 100 ? 0 : 1 - (this.offset / 100)};`
+      return `transform: translateX(calc(-100% + 18vw - ${this.offset > 200 ? 200 : this.offset * 2}px)); opacity: ${this.offset > 200 ? 0 : 1 - (this.offset / 200)};`
     },
     editorPreviewSlide () {
-      return `transform: translateX(calc(100% - 18vw + ${this.offset > 200 ? 200 : this.offset * 2}px)); opacity: ${this.offset > 100 ? 0 : 1 - (this.offset / 100)};`
+      return `transform: translateX(calc(100% - 18vw + ${this.offset > 200 ? 200 : this.offset * 2}px)); opacity: ${this.offset > 200 ? 0 : 1 - (this.offset /2100)};`
     },
     heroOpacity () {
-      return `opacity: ${this.offset > 200 ? 0 : 1 - (this.offset / 200)};`
+      return `opacity: ${this.offset > 250 ? 0 : 1 - (this.offset / 250)};`
     }
   },
   methods: {
@@ -102,7 +101,7 @@ export default {
     @apply text-5xl leading-none font-bold m-1
 
   &__sub-title
-    @apply text-2xl text-gray-100 max-w-2xl m-1
+    @apply text-2xl text-gray-100 max-w-3xl m-1
 
 .footer
   @apply bg-black flex flex-col items-center justify-center h-48
@@ -111,7 +110,7 @@ export default {
   background-image: radial-gradient(50% 17% at top, rgba(23,2,36,0.43) 0%, rgba(0,0,0,0.0) 100%)
 
   &__title
-    @apply text-5xl leading-none font-bold m-1
+    @apply text-5xl leading-none font-bold max-w-3xl m-1
     font-family: 'SF Pro Display';
 
   &__body
@@ -120,6 +119,10 @@ export default {
   &__button
     @apply py-2 px-6 m-3 rounded-lg text-xl font-bold
     background-image: linear-gradient(135deg, #FF7777 0%, #CB42FF 100%);
+    transition: transform .3s ease-out
+
+    &:hover
+      transform: scale(1.05)
 
   &__sub-text
     @apply text-sm font-light text-gray-400
@@ -141,10 +144,11 @@ export default {
 .info-section
   &__backdrop
     @apply flex flex-col items-center p-12 rounded-lg
-    background-color: #252525;
+    background-color: #212126;
     width: 1080px;
     min-height: 80vh;
     max-width: calc(100% - 4rem)
+    justify-content: flex-start;
 
   &__list
     @apply text-left max-w-lg mt-8 pl-16
@@ -206,9 +210,11 @@ export default {
   &__button
     @apply py-2 px-6 mx-4 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
+    transition: transform .3s ease-out
 
     &:hover, &:focus
-      box-shadow: inset 0 0 0 2px white;
+      transform: scale(1.05)
+      //box-shadow: inset 0 0 0 2px white;
 
     &:active
       @apply bg-white text-gray-900
