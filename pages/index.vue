@@ -7,13 +7,16 @@
       p.section-hero__sub-text 30-Day Money-Back Guarantee
       img.section-hero__browser-img( src="img/browser-preview.png" alt="Browser preview" :style="browserPreviewSlide" )
       img.section-hero__editor-img( src="img/editor-preview.png" alt="Editor preview" :style="editorPreviewSlide" )
+      // .section-hero__editor-img( alt="Editor preview" :style="'background-image: url(\"img/editor-frame-square.png\");' + editorPreviewSlide" ) 
+        pre(style="margin-left: 25%; margin-top: 18%;")
+          code Hey man 
     section.section.info-section
       .info-section__backdrop
         h1.section__title Speed up your workflow
         h2.section__sub-title Edit processed CSS without switching context and save time.
         .flex.flex-row
-          .demo-container( style="height: 80vh; margin-left: -50vw;" )
-            img.info-section__demo( src="img/browser-demo.webp" alt="Browser demo")
+          .info-section__demo-container
+            img.info-section__demo-img( src="img/browser-demo.webp" alt="Browser demo")
           ul.info-section__list
             li.info-section__list-item
               h3.info-section__list-item__title Live Sync
@@ -36,7 +39,7 @@
         div
           h1.cta-card__title Get your DevSync licence <del>now</del> soon.
           p.cta-card__body  No hassle, 30 money back guarantee.
-        form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
+        form.cta-card__form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
           input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
@@ -95,7 +98,7 @@ export default {
 //   font-display: swap
 
 .section
-  @apply relative flex flex-col items-center justify-center h-screen text-center overflow-x-hidden
+  @apply relative flex flex-col items-center justify-center min-h-screen text-center overflow-visible overflow-x-hidden
 
   &__title
     @apply text-5xl leading-none font-bold m-1
@@ -129,17 +132,22 @@ export default {
 
   &__browser-img
     @apply absolute object-contain
-    height: 80%;
-    top: 10%;
-    left: 0;
+    height: 80%
+    top: 10%
+    left: 0
     transform: translateX(calc(-100% + 18vw))
+
+    @media (max-width: 920px)
+      display: none
 
   &__editor-img
     @apply absolute object-contain
-    height: 80%;
-    top: 10%;
-    right: 0;
-    transform: translateX(calc(100% - 18vw))
+    height: 80%
+    top: 10%
+    right: 0
+
+    @media (max-width: 920px)
+      display: none
 
 .info-section
   &__backdrop
@@ -176,16 +184,27 @@ export default {
     &:nth-child(4) .info-section__list-item__title::before
       background-color: #5FE4FF
   
-  &__demo
-    // @apply absolute left-0
-    max-height: 80vh;
-    max-width: 100%;
+  &__demo-container
+    @apply m-6
+    height: 100%
+    margin-left: -40vw;
+
+    @media (max-width: 920px)
+      display: none
+
+  &__demo-img
+    max-width: 70vw
+
+    
 
 .section-cta
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
 
+  @media (max-width: 920px)
+    min-height: unset
+
 .cta-card
-  @apply flex flex-col justify-between py-10 px-12 rounded-lg text-left
+  @apply flex flex-col justify-between items-start py-10 px-12 rounded-lg text-left
   width: 64rem
   max-width: 100%
   background-image: url(/img/discount.svg), linear-gradient(176deg, #00000077 0%, #FAFAFA88 100%, #FFFFFF88 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
@@ -193,6 +212,7 @@ export default {
   background-repeat: no-repeat
   box-shadow: 0 0 32px 0px #dbceb645
   margin: 32px
+  margin-bottom: 0px
 
   &__title
     @apply text-5xl leading-none font-extrabold max-w-2xl
@@ -201,14 +221,17 @@ export default {
       text-decoration-color: #e33c3c
 
   &__body
-    @apply mt-2 mb-4 text-lg text-gray-100 font-semibold max-w-2xl
+    @apply my-2 text-lg text-gray-100 font-semibold max-w-2xl
+
+  &__form
+    @apply flex flex-row flex-wrap justify-center whitespace-no-wrap
 
   &__input
-    @apply py-2 px-6 bg-white text-gray-800 font-bold text-xl
+    @apply py-2 px-6 my-2 bg-white text-gray-800 font-bold text-xl
     border-radius: 5px;
 
   &__button
-    @apply py-2 px-6 mx-4 bg-black text-gray-100 font-bold text-xl
+    @apply py-2 px-6 my-2 mx-4 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
     transition: transform .3s ease-out
 
