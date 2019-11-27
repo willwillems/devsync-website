@@ -5,11 +5,11 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Devsync',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      { hid: 'description', name: 'description', content: 'A modern visual design tool that live-sync\'s CSS edits with your IDE. Speed up your workflow now!' },
       { name: 'theme-color', content: '#7CBBFF' }
     ],
     link: [
