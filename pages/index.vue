@@ -161,6 +161,10 @@ export default {
   &__list
     @apply text-left max-w-lg mt-8 pl-16
 
+    // hotfix for mobile
+    @media (max-width: 920px)
+      margin-top: none
+
   &__list-item
     @apply my-8 text-sm
   
