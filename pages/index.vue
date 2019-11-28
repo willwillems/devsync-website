@@ -1,17 +1,18 @@
 <template lang="pug">
   main
     section.section.section-hero( :style="heroOpacity" )
-      h1.section-hero__title Visual design tool that live-sync's CSS edits with your editor.
-      h2.section-hero__body Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real time.
-      button.section-hero__button( @click="goToBuy" ) Try it out!
-      p.section-hero__sub-text 30-Day Money-Back Guarantee
+      .section__body
+        h1.section-hero__title Visual design tool that live-sync's CSS edits with your editor.
+        h2.section-hero__body Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real time.
+        button.section-hero__button( @click="goToBuy" ) Try it out!
+        p.section-hero__sub-text 30-Day Money-Back Guarantee
       img.section-hero__browser-img( src="img/browser-preview.png" alt="Browser preview" :style="browserPreviewSlide" )
       img.section-hero__editor-img( src="img/editor-preview.png" alt="Editor preview" :style="editorPreviewSlide" )
       // .section-hero__editor-img( alt="Editor preview" :style="'background-image: url(\"img/editor-frame-square.png\");' + editorPreviewSlide" ) 
         pre(style="margin-left: 25%; margin-top: 18%;")
           code Hey man 
     section.section.info-section
-      .info-section__backdrop
+      .section__body.info-section__backdrop
         h1.section__title Speed up your workflow
         h2.section__sub-title Edit processed CSS without switching context and save time.
         .flex.flex-row
@@ -34,7 +35,32 @@
               h3.info-section__list-item__title Delete, add and update
               p
                 |You can delete, add and update all available CSS properties from our extention even with the option to save right from the browser.
+    section.section.section--left.section-text
+      .section__body.section__body--left
+        h1.section__title Design & develop at the same time
+        h2.section__sub-title Visually edit your design while automatically changing your code.
+        .section-text__paragraphs
+          .info-paragraph
+            img.info-paragraph__icon( src="/img/compatability-icon.svg" )
+            div
+              .info-paragraph__title Stop context switching
+              .info-paragraph__body Everytime you switch from browser to editor to adjust your design you lose time. Devsync enables you to directly apply adjustments in both places.
+          .info-paragraph
+            img.info-paragraph__icon( src="/img/visual-design-icon.svg" )
+            div
+              .info-paragraph__title Design with your eyes
+              .info-paragraph__body CSS determines both technical layout and visual aesthetic. Skip the step of predicting what your CSS will look like and the cumbersome process of adjusting from there. Directly design what looks good and save time.
+          .info-paragraph
+            img.info-paragraph__icon( src="/img/integration-icon.svg" )
+            div
+              .info-paragraph__title VS Code integration, native & clean. 
+              .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS.
+      img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
+
     section.section.section-cta
+      //- .section__body
+      //-   h1.section__title Pay once and use on up to three devices.
+      //-   h2.section__sub-title Get free updates for 1 year
       .cta-card( ref='cta' )
         div
           h1.cta-card__title Get your DevSync licence <del>now</del> soon.
@@ -44,6 +70,7 @@
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
           input.cta-card__button( type="submit" value="Get Notified!" name="subscribe" id="mc-embedded-subscribe" )
+    .wip-alert 🚧 This webpage is under active development
 </template>
 
 <script>
@@ -100,11 +127,18 @@ export default {
 .section
   @apply relative flex flex-col items-center justify-center min-h-screen text-center overflow-visible overflow-x-hidden
 
+  &__body
+    @apply flex flex-col items-center justify-center max-w-full
+    width: 1080px
+
+    &--left
+      @apply items-start
+
   &__title
     @apply text-5xl leading-none font-bold m-1
 
   &__sub-title
-    @apply text-2xl text-gray-100 max-w-3xl m-1
+    @apply text-2xl font-semibold text-gray-400 max-w-3xl m-1
 
 .footer
   @apply bg-black flex flex-col items-center justify-center h-48
@@ -151,11 +185,9 @@ export default {
 
 .info-section
   &__backdrop
-    @apply flex flex-col items-center p-12 rounded-lg
+    @apply p-12 rounded-lg
     background-color: #212126;
-    width: 1080px;
     min-height: 80vh;
-    max-width: calc(100% - 4rem)
     justify-content: flex-start;
 
   &__list
@@ -163,7 +195,8 @@ export default {
 
     // hotfix for mobile
     @media (max-width: 920px)
-      margin-top: none
+      margin-top: 0
+      padding-left: 0
 
   &__list-item
     @apply my-8 text-sm
@@ -199,10 +232,38 @@ export default {
   &__demo-img
     max-width: 70vw
 
+.section-text
+
+  &__paragraphs
+    @apply my-4
+
+  &__editor-img
+    @apply absolute object-contain
+    top: 10%
+    right: -20%
+    min-width: 620px
+    // transform: nice skew
+
+    @media (max-width: 920px)
+      z-index: -10
+      opacity: .2
+
+.info-paragraph
+  @apply flex flex-row text-left my-2 max-w-2xl
+
+  &__icon
+    @apply h-16 w-16 m-3 ml-0
+
+  &__title
+    @apply m-3 mb-0 text-2xl font-semibold leading-tight
+
+  &__body
+    @apply m-3 mt-2 text-base leading-snug
+
     
 
 .section-cta
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,.4) 70%);
 
   @media (max-width: 920px)
     min-height: unset
@@ -245,4 +306,22 @@ export default {
 
     &:active
       @apply bg-white text-gray-900
+
+.wip-alert
+  @apply fixed py-2 px-4 bg-red-600 font-bold text-sm rounded-lg
+  bottom: 24px;
+  left: calc(50%)
+  transform: translateX(-50%)
+  animation: 1s ease-in-out 0s infinite alternate bounce
+  box-sizing: border-box
+
+  &:hover
+    @apply bg-red-700
+
+@keyframes bounce
+  from
+    transform: translateX(-50%) translateY(-4px)
+
+  to
+    transform: translateX(-50%) translateY(0px)
 </style>
