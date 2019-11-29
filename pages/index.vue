@@ -186,7 +186,7 @@ export default {
 .info-section
   &__backdrop
     @apply p-12 rounded-lg
-    background-color: #212126;
+    background-color: #1c1c1e;
     min-height: 80vh;
     justify-content: flex-start;
 

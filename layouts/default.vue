@@ -7,7 +7,7 @@
 <style lang="sass">
 html
   @apply text-white
-  background-color: #1A1A1D
+  background-color: #0E0E0F
   color: #FFFFFF
   font-family: 'SF Pro Text', Arial, 'Helvetica Neue', Roboto, sans-serif
   font-size: 16px
