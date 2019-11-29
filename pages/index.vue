@@ -128,7 +128,7 @@ export default {
   @apply relative flex flex-col items-center justify-center min-h-screen text-center overflow-visible overflow-x-hidden
 
   &__body
-    @apply flex flex-col items-center justify-center max-w-full
+    @apply flex flex-col items-center justify-center max-w-full p-2
     width: 1080px
 
     &--left
@@ -199,15 +199,15 @@ export default {
       padding-left: 0
 
   &__list-item
-    @apply my-8 text-sm
+    @apply my-8
   
     &__title
-      @apply inline-block text-xl font-bold text-gray-100 my-1 leading-none
+      @apply inline-block text-xl font-bold text-gray-100 my-3 leading-none
 
       &::before
-        @apply inline-block w-3 h-3 mx-2 rounded-full bg-gray-500
+        @apply inline-block w-3 h-3 mx-4 rounded-full bg-gray-500
         content: ''
-        margin-left: calc(-0.75rem - 0.5rem); // bring the bullet in front of the title
+        margin-left: calc(-0.75rem - 1rem); // bring the bullet in front of the title (w - mr)
   
     &:nth-child(1) .info-section__list-item__title::before
       background-color: #70DABC
@@ -242,7 +242,7 @@ export default {
     top: 10%
     right: -20%
     min-width: 620px
-    // transform: nice skew
+    // transform: rotateX(50deg) rotate(-10deg) translateX(100px)
 
     @media (max-width: 920px)
       z-index: -10
