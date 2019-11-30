@@ -87,7 +87,7 @@
           a( href="/faq" ) FAQ
         li.footer__link
           a( href="/tuts" ) Tutorials
-    .wip-alert 🚧 This webpage is under active development
+    a.wip-alert( href="https://twitter.com/will_rut" ) 🚧 This webpage is under active development
 </template>
 
 <script>
@@ -172,7 +172,7 @@ export default {
   @apply bg-black flex flex-col items-center justify-center h-48
 
   &__title
-    @apply text-lg font-bold m-2 h-5
+    @apply text-lg font-bold m-2 h-5 opacity-75
 
   &__link-list
     @apply flex flex-row justify-center
@@ -347,7 +347,7 @@ export default {
       @apply bg-white text-gray-900
 
 .wip-alert
-  @apply fixed py-2 px-4 bg-red-600 font-bold text-sm rounded-lg
+  @apply fixed py-2 px-4 bg-red-600 font-bold text-sm rounded-lg text-center
   bottom: 24px;
   left: calc(50%)
   transform: translateX(-50%)
@@ -355,7 +355,7 @@ export default {
   box-sizing: border-box
 
   &:hover
-    @apply bg-red-700
+    @apply bg-red-500
 
 @keyframes bounce
   from
