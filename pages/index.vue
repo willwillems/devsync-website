@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    section.section.section-hero( :style="heroOpacity" )
+    section.section.section-hero#hero( :style="heroOpacity" )
       .section__body
         h1.section-hero__title Visual design tool that live-sync's CSS edits with your editor.
         h2.section-hero__body Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real time.
@@ -11,7 +11,7 @@
       // .section-hero__editor-img( alt="Editor preview" :style="'background-image: url(\"img/editor-frame-square.png\");' + editorPreviewSlide" ) 
         pre(style="margin-left: 25%; margin-top: 18%;")
           code Hey man 
-    section.section.info-section
+    section.section.info-section#info
       .section__body.info-section__backdrop
         h1.section__title Speed up your workflow
         h2.section__sub-title Edit processed CSS without switching context and save time.
@@ -35,29 +35,36 @@
               h3.info-section__list-item__title Delete, add and update
               p
                 |You can delete, add and update all available CSS properties from our extention even with the option to save right from the browser.
-    section.section.section--left.section-text
+    // section.section
+      .section__body.section__body--left
+        h1.section__title We support lie a lot of things
+        h2.section__sub-title Oh so manny things like you dont even wanna know ma man!
+    section.section.section--left.section-text#text
       .section__body.section__body--left
         h1.section__title Design & develop at the same time
         h2.section__sub-title Visually edit your design while automatically changing your code.
         .section-text__paragraphs
           .info-paragraph
-            img.info-paragraph__icon( src="/img/compatability-icon.svg" )
+            .info-paragraph__icon
+              AppAlignLogo
             div
               .info-paragraph__title Stop context switching
               .info-paragraph__body Everytime you switch from browser to editor to adjust your design you lose time. Devsync enables you to directly apply adjustments in both places.
           .info-paragraph
-            img.info-paragraph__icon( src="/img/visual-design-icon.svg" )
+            .info-paragraph__icon
+              AppSizingLogo
             div
               .info-paragraph__title Design with your eyes
               .info-paragraph__body CSS determines both technical layout and visual aesthetic. Skip the step of predicting what your CSS will look like and the cumbersome process of adjusting from there. Directly design what looks good and save time.
           .info-paragraph
-            img.info-paragraph__icon( src="/img/integration-icon.svg" )
+            .info-paragraph__icon
+              AppPositionLogo
             div
               .info-paragraph__title VS Code integration, native & clean. 
               .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS.
       img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
 
-    section.section.section-cta
+    section.section.section-cta#cta
       //- .section__body
       //-   h1.section__title Pay once and use on up to three devices.
       //-   h2.section__sub-title Get free updates for 1 year
@@ -68,7 +75,7 @@
           input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
-          input.cta-card__button( type="submit" value="Get Notified!" name="subscribe" id="mc-embedded-subscribe" )
+          input.cta-card__button( type="submit" value="Reserve!" name="subscribe" id="mc-embedded-subscribe" )
     footer.footer
       img.footer__title( src="/img/logo-mono.svg" )
       ul.footer__link-list
@@ -84,7 +91,16 @@
 </template>
 
 <script>
+import AppAlignLogo from '../components/AppAlignLogo.vue'
+import AppSizingLogo from '../components/AppSizingLogo.vue'
+import AppPositionLogo from '../components/AppPositionLogo.vue'
+
 export default {
+  components: {
+    AppAlignLogo,
+    AppSizingLogo,
+    AppPositionLogo
+  },
   data() {
     return {
       offset: 0
@@ -209,7 +225,7 @@ export default {
 .info-section
   &__backdrop
     @apply p-12 rounded-lg
-    background-color: #1c1c1e;
+    background-color: #1d2027;
     min-height: 80vh;
     justify-content: flex-start;
 
@@ -275,13 +291,14 @@ export default {
   @apply flex flex-row text-left my-2 max-w-2xl
 
   &__icon
-    @apply h-16 w-16 m-3 ml-0
+    @apply m-3 ml-0
+    width: 60px
 
   &__title
     @apply m-3 mb-0 text-2xl font-bold leading-tight
 
   &__body
-    @apply m-3 mt-2 text-base leading-snug
+    @apply m-3 mt-2 text-base leading-snug text-gray-500
 
     
 
