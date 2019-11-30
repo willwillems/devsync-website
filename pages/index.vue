@@ -2,7 +2,7 @@
   main
     section.section.section-hero#hero( :style="heroOpacity" )
       .section__body
-        h1.section-hero__title Visual design tool that live-sync's CSS edits with your editor.
+        h1.section__title Visual design tool that live-sync's CSS edits with your editor.
         h2.section-hero__body Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real time.
         button.section-hero__button( @click="goToBuy" ) Try it out!
         p.section-hero__sub-text 30-Day Money-Back Guarantee
@@ -158,10 +158,12 @@ export default {
     width: 1080px
 
     &--left
-      @apply items-start
+      @apply items-start text-left
 
   &__title
-    @apply text-5xl leading-none font-bold m-1
+    @apply text-5xl leading-none font-bold m-1 max-w-3xl
+    font-family: 'SF Pro Display';
+    // font-family: 'CriteriaCF-ExtraBold'
 
   &__sub-title
     @apply text-2xl font-semibold text-gray-400 max-w-3xl m-1
@@ -184,10 +186,6 @@ export default {
 
 .section-hero
   background-image: radial-gradient(50% 17% at top, rgba(23,2,36,0.43) 0%, rgba(0,0,0,0.0) 100%)
-
-  &__title
-    @apply text-5xl leading-none font-bold max-w-3xl m-1
-    font-family: 'SF Pro Display';
 
   &__body
     @apply text-xl text-gray-100 max-w-2xl m-1
@@ -298,7 +296,7 @@ export default {
     @apply m-3 mb-0 text-2xl font-bold leading-tight
 
   &__body
-    @apply m-3 mt-2 text-base leading-snug text-gray-500
+    @apply m-3 mt-2 text-base leading-normal text-gray-500
 
     
 
