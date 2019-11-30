@@ -1,7 +1,7 @@
 <template>
   <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="sizing-icon" stroke="none" stroke-width="1" fill="#CE51FF" fill-rule="evenodd">
-        <circle id="background" opacity="0.337983631" cx="30" cy="30" r="30"></circle>
+        <circle id="background" opacity="0.38" cx="30" cy="30" r="30"></circle>
         <rect id="rect" x="13" y="13" width="34" height="34" rx="4"></rect>
     </g>
     <animate 
