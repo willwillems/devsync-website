@@ -62,14 +62,24 @@
       //-   h1.section__title Pay once and use on up to three devices.
       //-   h2.section__sub-title Get free updates for 1 year
       .cta-card( ref='cta' )
-        div
-          h1.cta-card__title Get your DevSync licence <del>now</del> soon.
-          p.cta-card__body  No hassle, 30 money back guarantee.
+        h1.cta-card__title Get your DevSync licence <del>now</del> soon.
+        p.cta-card__body  No hassle, 30 money back guarantee.
         form.cta-card__form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
           input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
           input.cta-card__button( type="submit" value="Get Notified!" name="subscribe" id="mc-embedded-subscribe" )
+    footer.footer
+      img.footer__title( src="/img/logo-mono.svg" )
+      ul.footer__link-list
+        li.footer__link
+          a( href="mailto:will@devsync.co" ) Contact
+        li.footer__link
+          a( href="/twitter" ) Twitter
+        li.footer__link
+          a( href="/faq" ) FAQ
+        li.footer__link
+          a( href="/tuts" ) Tutorials
     .wip-alert 🚧 This webpage is under active development
 </template>
 
@@ -142,6 +152,19 @@ export default {
 
 .footer
   @apply bg-black flex flex-col items-center justify-center h-48
+
+  &__title
+    @apply text-lg font-bold m-2 h-5
+
+  &__link-list
+    @apply flex flex-row justify-center
+
+  &__link
+    @apply font-bold m-8 opacity-50
+
+    &:hover
+      @apply opacity-100
+
 
 .section-hero
   background-image: radial-gradient(50% 17% at top, rgba(23,2,36,0.43) 0%, rgba(0,0,0,0.0) 100%)
@@ -255,7 +278,7 @@ export default {
     @apply h-16 w-16 m-3 ml-0
 
   &__title
-    @apply m-3 mb-0 text-2xl font-semibold leading-tight
+    @apply m-3 mb-0 text-2xl font-bold leading-tight
 
   &__body
     @apply m-3 mt-2 text-base leading-snug
@@ -263,19 +286,20 @@ export default {
     
 
 .section-cta
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,.4) 70%);
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
 
   @media (max-width: 920px)
     min-height: unset
 
 .cta-card
-  @apply flex flex-col justify-between items-start py-10 px-12 rounded-lg text-left
-  width: 64rem
+  @apply flex flex-col justify-between items-start py-12 px-16 rounded-lg text-left
+  width: 1080px
   max-width: 100%
-  background-image: url(/img/discount.svg), linear-gradient(176deg, #00000077 0%, #FAFAFA88 100%, #FFFFFF88 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
-  background-position: bottom right, center, center
+  background-image: url(/img/discount.svg), linear-gradient(176deg, #00000044 0%, #FAFAFA66 100%, #FFFFFF66 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
+  background-position: bottom 0rem right 0rem, center, center
   background-repeat: no-repeat
-  box-shadow: 0 0 32px 0px #dbceb645
+  background-size: 40%, 100%, 100%
+  // box-shadow: 0 0 32px 0px #dbceb645
   margin: 32px
   margin-bottom: 0px
 
@@ -292,11 +316,11 @@ export default {
     @apply flex flex-row flex-wrap justify-center whitespace-no-wrap
 
   &__input
-    @apply py-2 px-6 my-2 bg-white text-gray-800 font-bold text-xl
-    border-radius: 5px;
+    @apply py-3 px-8 mt-2 bg-white text-gray-800 font-bold text-xl
+    border-radius: 5px
 
   &__button
-    @apply py-2 px-6 my-2 mx-4 bg-black text-gray-100 font-bold text-xl
+    @apply py-3 px-8 mt-2 mx-4 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
     transition: transform .3s ease-out
 

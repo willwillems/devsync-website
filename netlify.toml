@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/twitter"
+  to = "https://twitter.com/devsyncco"
+  force = true # COMMENT: ensure that we always redirect
