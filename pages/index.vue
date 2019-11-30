@@ -238,7 +238,7 @@ export default {
       padding-left: 0
 
   &__list-item
-    @apply my-8
+    @apply my-8 text-gray-400
   
     &__title
       @apply inline-block text-xl font-bold text-gray-100 my-3 leading-none
