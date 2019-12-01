@@ -76,6 +76,7 @@
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
           input.cta-card__button( type="submit" value="Reserve!" name="subscribe" id="mc-embedded-subscribe" )
+          input.cta-card__button.cta-card__button--mobile( type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" )
     footer.footer
       img.footer__title( src="/img/logo-mono.svg" )
       ul.footer__link-list
@@ -89,7 +90,7 @@
           a( href="/tuts" ) Tutorials
     label.wip-alert-container
       input( type="checkbox"  title="")
-      span.wip-alert 🚧 This webpage is under active development
+      div.wip-alert 🚧 This webpage is under active development
 </template>
 
 <script>
@@ -176,10 +177,10 @@ export default {
     @apply text-lg font-bold m-2 h-5 opacity-75
 
   &__link-list
-    @apply flex flex-row justify-center
+    @apply flex flex-row flex-wrap justify-center my-6
 
   &__link
-    @apply font-bold m-8 opacity-50
+    @apply font-bold m-8 my-2 opacity-50
 
     &:hover
       @apply opacity-100
@@ -303,12 +304,11 @@ export default {
 
 .section-cta
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
-
-  @media (max-width: 920px)
-    min-height: unset
+  min-height: unset
+  padding: 1rem
 
 .cta-card
-  @apply flex flex-col justify-between items-start py-12 px-16 rounded-lg text-left
+  @apply flex flex-col justify-between items-start py-12 px-16 m-32 rounded-lg text-left
   width: 1080px
   max-width: 100%
   background-image: url(/img/discount.svg), linear-gradient(176deg, #00000044 0%, #FAFAFA66 100%, #FFFFFF66 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
@@ -316,8 +316,12 @@ export default {
   background-repeat: no-repeat
   background-size: 40%, 100%, 100%
   // box-shadow: 0 0 32px 0px #dbceb645
-  margin: 32px
-  margin-bottom: 0px
+
+  @media (max-width: 920px)
+    @apply p-8
+    background-image: linear-gradient(176deg, #00000044 0%, #FAFAFA66 100%, #FFFFFF66 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
+    background-position: center, center
+    background-size: 100%, 100%
 
   &__title
     @apply text-5xl leading-none font-extrabold max-w-2xl
@@ -330,16 +334,29 @@ export default {
     @apply my-2 text-lg text-gray-100 font-semibold max-w-2xl
 
   &__form
-    @apply flex flex-row flex-wrap justify-center whitespace-no-wrap
+    @apply flex flex-row justify-center whitespace-no-wrap max-w-full
 
   &__input
     @apply py-3 px-8 mt-2 bg-white text-gray-800 font-bold text-xl
     border-radius: 5px
+    max-width: calc(100% - 4rem - 1rem)
 
   &__button
-    @apply py-3 px-8 mt-2 mx-4 bg-black text-gray-100 font-bold text-xl
+    @apply py-3 px-8 mt-2 ml-4 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
     transition: transform .3s ease-out
+    min-width: 4rem
+
+
+    &--mobile
+      @apply p-3 hidden
+
+      @media (max-width: 920px)
+        display: block;
+      
+    &:not(.cta-card__button--mobile)
+      @media (max-width: 920px)
+        display: none;
 
     &:hover, &:focus
       transform: scale(1.05)
