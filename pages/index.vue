@@ -14,27 +14,27 @@
     section.section.info-section#info
       .section__body.info-section__backdrop
         h1.section__title Speed up your workflow
-        h2.section__sub-title Edit processed CSS without switching context and save time.
-        .flex.flex-row
+        h2.section__sub-title Edit your CSS visually and save time.
+        .flex.flex-row.items-center.mt-4
           .info-section__demo-container
             img.info-section__demo-img( src="img/browser-demo.webp" alt="Browser demo")
           ul.info-section__list
             li.info-section__list-item
-              h3.info-section__list-item__title Live Sync
+              h3.info-section__list-item__title CSS that makes visual sense
               p
-                |Your edits are applied live and injected in the webpage you’re editing in order to provide a seamless on the fly experience that boosts your productivity.
+                | Create CSS that looks good and makes sense visually. Iterate quickly, try things out on a whim to see how they look but be able to save your work.
             li.info-section__list-item
-              h3.info-section__list-item__title Edit Visually
+              h3.info-section__list-item__title Live-sync your edits
               p
-                | See what you are doing. Use your editor to explicitly define style behaviour and Devsync to express your design visually.
+                | To maximize productivity your edits are applied live trough a low-latency websocket connection with your editor and injected in the webpage trough the Chrome debugger. All without reloading.
             li.info-section__list-item
-              h3.info-section__list-item__title Optimized for productivity
+              h3.info-section__list-item__title No unmaintainable mystery CSS
               p
-                |We found out which CSS properties are used most and put them right at your finger tips. One click away.
+                | All the CSS you add, edit or delete is part of a CSS rule you defined in your project. Rules Are added in a logical manner but feel free to run prettier on save, remember you are still working in your editor!
             li.info-section__list-item
-              h3.info-section__list-item__title Delete, add and update
+              h3.info-section__list-item__title Keep full fine-grained controll
               p
-                |You can delete, add and update all available CSS properties from our extention even with the option to save right from the browser.
+                | Want to edit a weird CSS property, you can always just quickly hop into your editor.
     // section.section
       .section__body.section__body--left
         h1.section__title We support lie a lot of things
@@ -49,7 +49,7 @@
               AppAlignLogo
             div
               .info-paragraph__title Stop context switching
-              .info-paragraph__body Everytime you switch from browser to editor to adjust your design you lose time. Devsync enables you to directly apply adjustments in both places.
+              .info-paragraph__body Everytime you switch from browser to editor to adjust your design you lose time and focus. Devsync enables you to directly apply adjustments in both places.
           .info-paragraph
             .info-paragraph__icon
               AppSizingLogo
@@ -60,8 +60,14 @@
             .info-paragraph__icon
               AppPositionLogo
             div
-              .info-paragraph__title VS Code integration, native & clean. 
-              .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS.
+              .info-paragraph__title Iterate quickly  
+              .info-paragraph__body Try things out, quickly check out what your ideas look like and either save or discard them.
+          .info-paragraph
+            .info-paragraph__icon
+              AppSettingsLogo
+            div
+              .info-paragraph__title Works with your tools
+              .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS and many other technologies.
       img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
 
     section.section.section-cta#cta
@@ -97,12 +103,14 @@
 import AppAlignLogo from '../components/AppAlignLogo.vue'
 import AppSizingLogo from '../components/AppSizingLogo.vue'
 import AppPositionLogo from '../components/AppPositionLogo.vue'
+import AppSettingsLogo from '../components/AppSettingsLogo.vue'
 
 export default {
   components: {
     AppAlignLogo,
     AppSizingLogo,
-    AppPositionLogo
+    AppPositionLogo,
+    AppSettingsLogo
   },
   data() {
     return {
@@ -230,7 +238,7 @@ export default {
     justify-content: flex-start;
 
   &__list
-    @apply text-left max-w-lg mt-8 pl-16
+    @apply text-left max-w-lg pl-16
 
     // hotfix for mobile
     @media (max-width: 920px)
