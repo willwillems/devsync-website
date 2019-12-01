@@ -63,7 +63,26 @@ Preprocessed (SASS, SCSS, Less, PostCSS) and minified.
 
 Visually edit in the page 
 
-Save boatloads of time 
+Save boatloads of time.
+
+Create CSS that makes visual sense.
+
+Stop toggling between editor and page.
+
+Keep control over your css code.
+
+Change things on the page visually and save them to apply them to your code.
+
+No mystery code, CSS you don't know anything about and that does not make sense.
+
+Maintain full controll over your CSS
+
+Objections:
+- This doesnt work with my setup
+  - Show with what setups it does work
+- I don't get it
+  - Demo video
+- 
 
 
 ## Build Setup
