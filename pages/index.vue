@@ -87,7 +87,9 @@
           a( href="/faq" ) FAQ
         li.footer__link
           a( href="/tuts" ) Tutorials
-    a.wip-alert( href="https://twitter.com/will_rut" ) 🚧 This webpage is under active development
+    label.wip-alert-container
+      input( type="checkbox"  title="")
+      span.wip-alert 🚧 This webpage is under active development
 </template>
 
 <script>
@@ -107,16 +109,16 @@ export default {
     }
   },
   mounted () {
-    this.setParallax()
-    const eventHandler = () => requestAnimationFrame(this.setParallax)
-    window.addEventListener('resize', eventHandler)
-    window.addEventListener('scroll', eventHandler)
-    // Remove the scroll hanlder when the
-    // component is destroyed.
-    this.$on(`hook:destroyed`, () => {
-      window.removeEventListener('resize', eventHandler)
-      window.removeEventListener('scroll', eventHandler)
-    })
+    // this.setParallax()
+    // const eventHandler = () => requestAnimationFrame(this.setParallax)
+    // window.addEventListener('resize', eventHandler)
+    // window.addEventListener('scroll', eventHandler)
+    // // Remove the scroll hanlder when the
+    // // component is destroyed.
+    // this.$on(`hook:destroyed`, () => {
+    //   window.removeEventListener('resize', eventHandler)
+    //   window.removeEventListener('scroll', eventHandler)
+    // })
   },
   computed: {
     browserPreviewSlide () {
@@ -162,8 +164,7 @@ export default {
 
   &__title
     @apply text-5xl leading-none font-bold m-1 max-w-3xl
-    font-family: 'SF Pro Display';
-    // font-family: 'CriteriaCF-ExtraBold'
+    font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
 
   &__sub-title
     @apply text-2xl font-semibold text-gray-400 max-w-3xl m-1
@@ -320,6 +321,7 @@ export default {
 
   &__title
     @apply text-5xl leading-none font-extrabold max-w-2xl
+    font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
     
     del
       text-decoration-color: #e33c3c
@@ -346,16 +348,25 @@ export default {
     &:active
       @apply bg-white text-gray-900
 
-.wip-alert
-  @apply fixed py-2 px-4 bg-red-600 font-bold text-sm rounded-lg text-center
+.wip-alert-container
+  @apply fixed
   bottom: 24px;
   left: calc(50%)
   transform: translateX(-50%)
   animation: 1s ease-in-out 0s infinite alternate bounce
+
+  input
+    @apply appearance-none
+
+.wip-alert
+  @apply  py-2 px-4 bg-red-600 font-bold text-sm rounded-lg text-center appearance-none
   box-sizing: border-box
 
   &:hover
     @apply bg-red-500
+
+input:checked ~ .wip-alert
+  @apply hidden
 
 @keyframes bounce
   from
