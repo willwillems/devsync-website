@@ -76,7 +76,12 @@
         .flex.flex-row.items-center.justify-center.flex-wrap.m-4.max-w-4xl
           a.compatibility-indicator(
             v-for="indicator in compatibility"
-            :class="`compatibility-indicator--${indicator.status}`"
+            :class=`{
+              'compatibility-indicator--success': (indicator.status === 'success'),
+              'compatibility-indicator--info':    (indicator.status === 'info'),
+              'compatibility-indicator--warning': (indicator.status === 'warning'),
+              'compatibility-indicator--error':   (indicator.status === 'error')
+            }`
             :href="indicator.link"
           )
             img.compatibility-indicator__icon( :src="indicator.icon" )
@@ -393,14 +398,8 @@ export default {
   border-radius: 5px
   transition: opacity ease-out .3s
 
-  &__title
-    @apply text-xs leading-tight text-gray-300 font-semibold h-0 m-2
-
-  &__icon
-    @apply h-12 w-12
-
-  &__status
-    @apply absolute bottom-0 right-0 h-4 w-4
+  &:hover
+    @apply opacity-100
 
   &--success
     @apply text-green-600
@@ -413,9 +412,15 @@ export default {
 
   &--error
     @apply text-red-600 opacity-25
+  
+  &__title
+    @apply text-xs leading-tight text-gray-300 font-semibold h-0 m-2
 
-  &:hover
-    @apply opacity-100
+  &__icon
+    @apply h-12 w-12
+
+  &__status
+    @apply absolute bottom-0 right-0 h-4 w-4
 
 .section-cta
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
