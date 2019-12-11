@@ -242,7 +242,7 @@ export default {
 //   font-display: swap
 
 .section
-  @apply relative flex flex-col items-center justify-center p-8 min-h-screen text-center overflow-visible overflow-x-hidden
+  @apply relative flex flex-col items-center justify-center p-6 min-h-screen text-center overflow-visible overflow-x-hidden
 
   &__body
     @apply flex flex-col items-center justify-center max-w-full p-2
@@ -393,9 +393,6 @@ export default {
   border-radius: 5px
   transition: opacity ease-out .3s
 
-  &:hover
-    @apply opacity-100
-
   &__title
     @apply text-xs leading-tight text-gray-300 font-semibold h-0 m-2
 
@@ -416,6 +413,9 @@ export default {
 
   &--error
     @apply text-red-600 opacity-25
+
+  &:hover
+    @apply opacity-100
 
 .section-cta
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
