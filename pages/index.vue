@@ -69,11 +69,24 @@
               .info-paragraph__title Works with your tools
               .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS and many other technologies.
       img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
-
+    section.section
+      .section__body
+        h1.section__title Our Compatibility
+        h2.section__sub-title.m-2 Devsync works with every bundeler that generates correct sourcemaps. However not all do by default. We've tested some populair setups on compatabillity.
+        .flex.flex-row.items-center.justify-center.flex-wrap.m-4.max-w-4xl
+          a.compatibility-indicator(
+            v-for="indicator in compatibility"
+            :class="`compatibility-indicator--${indicator.status}`"
+            :href="indicator.link"
+          )
+            img.compatibility-indicator__icon( :src="indicator.icon" )
+            .compatibility-indicator__title {{ indicator.title }}
+            svg.compatibility-indicator__status( viewBox="0 0 10 10" )
+              polygon( points="0,10 10,10 10,0" fill="currentColor" )
     section.section.section-cta#cta
-      //- .section__body
-      //-   h1.section__title Pay once and use on up to three devices.
-      //-   h2.section__sub-title Get free updates for 1 year
+      .section__body
+        h1.section__title Pay once and use on up to three devices.
+        h2.section__sub-title Get free updates for 1 year, money back for 30 days.
       .cta-card( ref='cta' )
         h1.cta-card__title Get your DevSync licence <del>now</del> soon.
         p.cta-card__body  No hassle, 30 money back guarantee.
@@ -114,7 +127,74 @@ export default {
   },
   data() {
     return {
-      offset: 0
+      offset: 0,
+      compatibility: [
+        {
+          title: 'HTML',
+          icon: 'img/icons/html.svg',
+          status: 'success',
+        },
+        {
+          title: 'Webpack',
+          icon: 'img/icons/webpack.svg',
+          status: 'success',
+          link: 'https://docs.devsync.co/compatibility/webpack.html'
+        },
+        {
+          title: 'Rollup',
+          icon: 'img/icons/rollup.svg',
+          status: 'info',
+          link: 'https://docs.devsync.co/compatibility/rollup.html'
+        },
+        {
+          title: 'Vue JS',
+          icon: 'img/icons/vue.svg',
+          status: 'success',
+          link: 'https://docs.devsync.co/compatibility/vue.html'
+        },
+        {
+          title: 'Nuxt',
+          icon: 'img/icons/nuxt.svg',
+          status: 'success',
+          link: 'https://docs.devsync.co/compatibility/vue.html#nuxt'
+        },
+        {
+          title: 'React',
+          icon: 'img/icons/react.svg',
+          status: 'warning',
+          link: 'https://docs.devsync.co/compatibility/react.html'
+        },
+        {
+          title: 'Next',
+          icon: 'img/icons/next.svg',
+          status: 'warning',
+          link: 'https://docs.devsync.co/compatibility/react.html#next'
+        },
+        {
+          title: 'Gatsby',
+          icon: 'img/icons/gatsby.svg',
+          status: 'info',
+          link: 'https://docs.devsync.co/compatibility/react.html#gatsby'
+        },
+        {
+          title: 'Angular',
+          icon: 'img/icons/angular.svg',
+          status: 'warning',
+          link: 'https://docs.devsync.co/compatibility/angular.html'
+        },
+        {
+          title: 'Ember',
+          icon: 'img/icons/ember.svg',
+          status: 'error',
+          link: 'https://docs.devsync.co/compatibility/ember.html'
+        },
+        {
+          title: 'Svelte',
+          icon: 'img/icons/svelte.svg',
+          status: 'error',
+          link: 'https://docs.devsync.co/compatibility/svelte.html'
+        }
+      ]
     }
   },
   mounted () {
@@ -162,7 +242,7 @@ export default {
 //   font-display: swap
 
 .section
-  @apply relative flex flex-col items-center justify-center min-h-screen text-center overflow-visible overflow-x-hidden
+  @apply relative flex flex-col items-center justify-center p-8 min-h-screen text-center overflow-visible overflow-x-hidden
 
   &__body
     @apply flex flex-col items-center justify-center max-w-full p-2
@@ -176,7 +256,7 @@ export default {
     font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
 
   &__sub-title
-    @apply text-2xl font-semibold text-gray-400 max-w-3xl m-1
+    @apply text-2xl leading-tight font-semibold text-gray-400 max-w-4xl m-1
 
 .footer
   @apply bg-black flex flex-col items-center justify-center h-48
@@ -185,10 +265,10 @@ export default {
     @apply text-lg font-bold m-2 h-5 opacity-75
 
   &__link-list
-    @apply flex flex-row flex-wrap justify-center my-6
+    @apply flex flex-row flex-wrap justify-center my-6 max-w-6xl
 
   &__link
-    @apply font-bold m-8 my-2 opacity-50
+    @apply font-bold my-2 opacity-50 w-24 text-center
 
     &:hover
       @apply opacity-100
@@ -308,7 +388,34 @@ export default {
   &__body
     @apply m-3 mt-2 text-base leading-normal text-gray-500
 
-    
+.compatibility-indicator
+  @apply relative h-24 w-24 m-4 flex flex-col items-center justify-center bg-gray-800 opacity-75 overflow-hidden
+  border-radius: 5px
+  transition: opacity ease-out .3s
+
+  &:hover
+    @apply opacity-100
+
+  &__title
+    @apply text-xs leading-tight text-gray-300 font-semibold h-0 m-2
+
+  &__icon
+    @apply h-12 w-12
+
+  &__status
+    @apply absolute bottom-0 right-0 h-4 w-4
+
+  &--success
+    @apply text-green-600
+
+  &--info
+    @apply text-blue-600
+  
+  &--warning
+    @apply text-yellow-600 opacity-50
+
+  &--error
+    @apply text-red-600 opacity-25
 
 .section-cta
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
