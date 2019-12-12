@@ -26,6 +26,7 @@ export default {
       { property: 'twitter:image', content: 'https://devsync.co/img/social-card.png' }
     ],
     link: [
+      { rel: 'stylesheet', href: '/css/prism-one-dark.css' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
