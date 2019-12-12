@@ -39,7 +39,7 @@
       .section__body.section__body--left
         h1.section__title We support lie a lot of things
         h2.section__sub-title Oh so manny things like you dont even wanna know ma man!
-    section.section.section--left.section-text#text
+    section.section.section--left.section-text#text( ref="text" )
       .section__body.section__body--left
         h1.section__title Design & develop at the same time
         h2.section__sub-title Visually edit your design while automatically changing your code.
@@ -68,12 +68,13 @@
             div
               .info-paragraph__title Works with your tools
               .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS and many other technologies.
-      img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
+      TheLiveCodeExample(v-if="thingy")
+      // - img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
     section.section
       .section__body
         h1.section__title Our Compatibility
         h2.section__sub-title.m-2 Devsync works with every bundeler that generates correct sourcemaps. However not all do by default. We've tested some populair setups on compatabillity.
-        .flex.flex-row.items-center.justify-center.flex-wrap.m-4.max-w-4xl
+        .compatibility-container
           a.compatibility-indicator(
             v-for="indicator in compatibility"
             :class=`{
@@ -88,13 +89,23 @@
             .compatibility-indicator__title {{ indicator.title }}
             svg.compatibility-indicator__status( viewBox="0 0 10 10" )
               polygon( points="0,10 10,10 10,0" fill="currentColor" )
+      //- .flex.flex-row.items-center.justify-center.flex-wrap.m-4.max-w-4xl
+        img( src="img/icons/mac.svg" ).platform-logo.h-10.w-10.m-6.my-2
+        img( src="img/icons/windows.svg" ).platform-logo.h-10.w-10.m-6.my-2
+        img( src="img/icons/linux.svg" ).platform-logo.h-10.w-10.m-6.my-2
     section.section.section-cta#cta
-      .section__body
-        h1.section__title Pay once and use on up to three devices.
-        h2.section__sub-title Get free updates for 1 year, money back for 30 days.
       .cta-card( ref='cta' )
         h1.cta-card__title Get your DevSync licence <del>now</del> soon.
         p.cta-card__body  No hassle, 30 money back guarantee.
+        form.cta-card__form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
+          input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
+          input.cta-card__button( type="submit" value="Reserve!" name="subscribe" id="mc-embedded-subscribe" )
+          input.cta-card__button.cta-card__button--mobile( type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" )
+      //- .section__body
+        h1.section__title Pay once and use on up to three devices.
+        h2.section__sub-title Get free updates for 1 year, money back for 30 days.
         form.cta-card__form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
           input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -122,13 +133,15 @@ import AppAlignLogo from '../components/AppAlignLogo.vue'
 import AppSizingLogo from '../components/AppSizingLogo.vue'
 import AppPositionLogo from '../components/AppPositionLogo.vue'
 import AppSettingsLogo from '../components/AppSettingsLogo.vue'
+import TheLiveCodeExample from '../components/TheLiveCodeExample.vue'
 
 export default {
   components: {
     AppAlignLogo,
     AppSizingLogo,
     AppPositionLogo,
-    AppSettingsLogo
+    AppSettingsLogo,
+    TheLiveCodeExample
   },
   data() {
     return {
@@ -199,20 +212,21 @@ export default {
           status: 'error',
           link: 'https://docs.devsync.co/compatibility/svelte.html'
         }
-      ]
+      ],
+      thingy: true
     }
   },
   mounted () {
-    // this.setParallax()
-    // const eventHandler = () => requestAnimationFrame(this.setParallax)
-    // window.addEventListener('resize', eventHandler)
-    // window.addEventListener('scroll', eventHandler)
-    // // Remove the scroll hanlder when the
-    // // component is destroyed.
-    // this.$on(`hook:destroyed`, () => {
-    //   window.removeEventListener('resize', eventHandler)
-    //   window.removeEventListener('scroll', eventHandler)
-    // })
+    this.setParallax()
+    const eventHandler = () => requestAnimationFrame(this.setParallax)
+    window.addEventListener('resize', eventHandler)
+    window.addEventListener('scroll', eventHandler)
+    // Remove the scroll hanlder when the
+    // component is destroyed.
+    this.$on(`hook:destroyed`, () => {
+      window.removeEventListener('resize', eventHandler)
+      window.removeEventListener('scroll', eventHandler)
+    })
   },
   computed: {
     browserPreviewSlide () {
@@ -227,6 +241,8 @@ export default {
   },
   methods: {
     setParallax() {
+      // THIS IS SHIT
+      this.thingy = (window.innerWidth > 600) || ( (this.$refs['text'].getBoundingClientRect().y < window.innerHeight) && (this.$refs['text'].getBoundingClientRect().y > (window.innerHeight - this.$refs['text'].getBoundingClientRect().height)) )
       this.offset = window.scrollY
     },
     goToBuy() {
@@ -245,6 +261,15 @@ export default {
 //   font-style: normal
 //   font-weight: 700
 //   font-display: swap
+
+
+.platform-logo
+  opacity: 0.5
+  filter: contrast(0.14) grayscale(1) brightness(1.8);
+  transition: filter ease-out .5s
+
+  &:hover
+    filter: contrast(1) grayscale(0) brightness(1.2);
 
 .section
   @apply relative flex flex-col items-center justify-center p-6 min-h-screen text-center overflow-visible overflow-x-hidden
@@ -383,20 +408,41 @@ export default {
 .info-paragraph
   @apply flex flex-row text-left my-2 max-w-2xl
 
+  @media(max-width: 600px)
+    @apply flex-col
+
   &__icon
     @apply m-3 ml-0
     width: 60px
 
+    @media(max-width: 600px)
+      @apply my-6 mx-0
+
   &__title
     @apply m-3 mb-0 text-2xl font-bold leading-tight
 
+    @media(max-width: 600px)
+      @apply m-0
+
   &__body
     @apply m-3 mt-2 text-base leading-normal text-gray-500
+
+    @media(max-width: 600px)
+      @apply m-0 mt-4
+
+.compatibility-container
+  @apply flex flex-row items-center justify-center flex-wrap m-4 max-w-4xl
+
+  @media(max-width: 600px)
+    @apply m-0 my-4
 
 .compatibility-indicator
   @apply relative h-24 w-24 m-4 flex flex-col items-center justify-center bg-gray-800 opacity-75 overflow-hidden
   border-radius: 5px
   transition: opacity ease-out .3s
+
+  @media(max-width: 600px)
+    @apply h-20 w-20 m-2
 
   &:hover
     @apply opacity-100
@@ -417,7 +463,8 @@ export default {
     @apply text-xs leading-tight text-gray-300 font-semibold h-0 m-2
 
   &__icon
-    @apply h-12 w-12
+    height: 50%
+    width: 50%
 
   &__status
     @apply absolute bottom-0 right-0 h-4 w-4
@@ -428,10 +475,10 @@ export default {
   padding: 1rem
 
 .cta-card
-  @apply flex flex-col justify-between items-start py-12 px-16 m-32 rounded-lg text-left
+  @apply flex flex-col justify-between items-start py-20 px-16 m-32 mt-0 rounded-lg text-left
   width: 1080px
-  max-width: 100%
-  background-image: url(/img/discount.svg), linear-gradient(176deg, #00000044 0%, #FAFAFA66 100%, #FFFFFF66 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
+  max-width: 100% 
+  background-image: url(/img/discount.svg), linear-gradient(176deg, rgba(0,0,0,0.45) 0%, rgba(33,33,33,0.35) 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
   background-position: bottom 0rem right 0rem, center, center
   background-repeat: no-repeat
   background-size: 40%, 100%, 100%
@@ -439,7 +486,7 @@ export default {
 
   @media (max-width: 920px)
     @apply p-8
-    background-image: linear-gradient(176deg, #00000044 0%, #FAFAFA66 100%, #FFFFFF66 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
+    background-image: linear-gradient(176deg, rgba(0,0,0,0.2) 0%, rgba(33,33,33,0.15) 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
     background-position: center, center
     background-size: 100%, 100%
 
@@ -456,13 +503,16 @@ export default {
   &__form
     @apply flex flex-row justify-center whitespace-no-wrap max-w-full
 
+    & > *:not(:first-child)
+      @apply mt-2 ml-4
+
   &__input
     @apply py-3 px-8 mt-2 bg-white text-gray-800 font-bold text-xl
     border-radius: 5px
     max-width: calc(100% - 4rem - 1rem)
 
   &__button
-    @apply py-3 px-8 mt-2 ml-4 bg-black text-gray-100 font-bold text-xl
+    @apply py-3 px-8 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
     transition: transform .3s ease-out
     min-width: 4rem
