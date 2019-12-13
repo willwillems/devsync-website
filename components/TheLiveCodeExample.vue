@@ -1,5 +1,5 @@
 <template lang="pug">
-.example-container
+.example-container( @mouseover="demo" )
   .relative.w-full.h-full
     PrismEditor.code-editor( :code="codeExampleText" lineNumbers language="css" )
     .input-row.controller
@@ -33,7 +33,7 @@
 
 <script>
 import "prismjs";
-import "../static/css/prism-one-dark.css";
+// import "../static/css/prism-one-dark.css";
 import PrismEditor from 'vue-prism-editor'
 
 import AppInputSelect from './demo/AppInputSelect.vue'
@@ -54,9 +54,10 @@ export default {
     return {
       sizeOptions,
       weightOptions,
-      fontStyle: 'itallic',
+      fontStyle: 'normal',
       fontWeight: '700',
       fontSize: '3rem',
+      demoFired: false
     }
   },
   computed: {
@@ -79,12 +80,24 @@ export default {
 
 
 
+
+
+
 `
     }
   },
-  watch: {
-    codeExampleText (val) {
-      this.$emit('changeCss', val)
+  methods: {
+    demo () {
+      if (this.demoFired === true) return
+      this.demoFired = true
+      window.setTimeout(() => this.fontSize = '2.9rem', 100)
+      window.setTimeout(() => this.fontSize = '2.8rem', 400)
+      window.setTimeout(() => this.fontSize = '2.7rem', 1000)
+      window.setTimeout(() => this.fontSize = '2.6rem', 1500)
+      window.setTimeout(() => this.fontSize = '2.5rem', 2000)
+
+      window.setTimeout(() => this.fontStyle = 'italic', 4000)
+      window.setTimeout(() => this.fontStyle = 'normal', 7000)
     }
   }
 }
@@ -94,7 +107,7 @@ export default {
 <style lang="sass" scoped>
 .example-container
   position: absolute;
-  top: 20%;
+  top: 23%;
   right: 2rem;
 
 .code-editor
@@ -122,8 +135,8 @@ export default {
   padding: .6rem 1.2rem .8rem 1.2rem;
   border-radius: 5px;
   position: absolute;
-  bottom: 15%;
-  left: -25%;
+  bottom: 18%;
+  left: -20%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.18);
   font-size: 12px;
 

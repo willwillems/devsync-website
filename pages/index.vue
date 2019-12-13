@@ -1,10 +1,12 @@
 <template lang="pug">
   main
-    section.section.section-hero#hero( :style="heroOpacity" )
+    section.section.section-hero#hero
       .section__body
         h1.section__title Visual design tool that live-sync's CSS edits with your editor.
-        h2.section-hero__body Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real time.
-        button.section-hero__button( @click="goToBuy" ) Try it out!
+        h2.section__sub-title.section-hero__sub-title Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real-time.
+        .m3
+          button.section-hero__button( @click="goToBuy" ) Watch Demo
+          button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
         p.section-hero__sub-text 30-Day Money-Back Guarantee
       img.section-hero__browser-img( src="img/browser-preview.png" alt="Browser preview" :style="browserPreviewSlide" )
       img.section-hero__editor-img( src="img/editor-preview.png" alt="Editor preview" :style="editorPreviewSlide" )
@@ -67,13 +69,13 @@
               AppSettingsLogo
             div
               .info-paragraph__title Works with your tools
-              .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with Webpack, Vue, React, SCSS, SASS and many other technologies.
+              .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with most preprocessor, check below for compatibility.
       TheLiveCodeExample(v-if="thingy")
       // - img.section-text__editor-img( src="img/editor-preview.png" alt="Editor preview" )
     section.section
       .section__body
-        h1.section__title Our Compatibility
-        h2.section__sub-title.m-2 Devsync works with every bundeler that generates correct sourcemaps. However not all do by default. We've tested some populair setups on compatabillity.
+        h1.section__title Verified Compatibility
+        h2.section__sub-title.m-2 Devsync works with every bundeler that correctly generates sourcemaps. Not all do by default. We've tested some populair setups for compatabillity.
         .compatibility-container
           a.compatibility-indicator(
             v-for="indicator in compatibility"
@@ -93,27 +95,19 @@
         img( src="img/icons/mac.svg" ).platform-logo.h-10.w-10.m-6.my-2
         img( src="img/icons/windows.svg" ).platform-logo.h-10.w-10.m-6.my-2
         img( src="img/icons/linux.svg" ).platform-logo.h-10.w-10.m-6.my-2
-    section.section.section-cta#cta
-      .cta-card( ref='cta' )
-        h1.cta-card__title Get your DevSync licence <del>now</del> soon.
-        p.cta-card__body  No hassle, 30 money back guarantee.
-        form.cta-card__form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
-          input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
+    section.section.section-cta#cta( ref="cta" )
+      TheCtaCard
+      .section__body
+        h1.section__title Stay up to date.
+        h2.section__sub-title Get notified about updates and new features
+        form.email-form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
+          input.email-form__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
-          input.cta-card__button( type="submit" value="Reserve!" name="subscribe" id="mc-embedded-subscribe" )
-          input.cta-card__button.cta-card__button--mobile( type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" )
-      //- .section__body
-        h1.section__title Pay once and use on up to three devices.
-        h2.section__sub-title Get free updates for 1 year, money back for 30 days.
-        form.cta-card__form( action="https://nickolasboyer.us12.list-manage.com/subscribe/post?u=55a5fbebab9bb447102de7229&amp;id=42d8840ff4" method="post" )
-          input.cta-card__input( placeholder="email" type="email" value="" name="EMAIL" id="mce-EMAIL" required )
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
-          input.cta-card__button( type="submit" value="Reserve!" name="subscribe" id="mc-embedded-subscribe" )
-          input.cta-card__button.cta-card__button--mobile( type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" )
+          input.email-form__button( type="submit" value="Subscribe!" name="subscribe" id="mc-embedded-subscribe" )
+          input.email-form__button.email-form__button--mobile( type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" )
     footer.footer
-      img.footer__title( src="/img/logo-mono.svg" )
+      // img.footer__title( src="/img/logo-mono.svg" )
       ul.footer__link-list
         li.footer__link
           a( href="mailto:will@devsync.co" ) Contact
@@ -123,9 +117,6 @@
           a( href="/faq" ) FAQ
         li.footer__link
           a( href="/tuts" ) Tutorials
-    label.wip-alert-container
-      input( type="checkbox"  title="")
-      div.wip-alert 🚧 This webpage is under active development
 </template>
 
 <script>
@@ -134,6 +125,79 @@ import AppSizingLogo from '../components/AppSizingLogo.vue'
 import AppPositionLogo from '../components/AppPositionLogo.vue'
 import AppSettingsLogo from '../components/AppSettingsLogo.vue'
 import TheLiveCodeExample from '../components/TheLiveCodeExample.vue'
+import TheCtaCard from '../components/TheCtaCard.vue'
+
+const particleConfig = {
+  "particles": {
+    "number": {
+      "value": 40,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#999"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.2,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.1,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "retina_detect": true
+}
 
 export default {
   components: {
@@ -141,7 +205,8 @@ export default {
     AppSizingLogo,
     AppPositionLogo,
     AppSettingsLogo,
-    TheLiveCodeExample
+    TheLiveCodeExample,
+    TheCtaCard
   },
   data() {
     return {
@@ -217,16 +282,20 @@ export default {
     }
   },
   mounted () {
-    this.setParallax()
-    const eventHandler = () => requestAnimationFrame(this.setParallax)
-    window.addEventListener('resize', eventHandler)
-    window.addEventListener('scroll', eventHandler)
-    // Remove the scroll hanlder when the
-    // component is destroyed.
-    this.$on(`hook:destroyed`, () => {
-      window.removeEventListener('resize', eventHandler)
-      window.removeEventListener('scroll', eventHandler)
-    })
+    // this.setParallax()
+    // const eventHandler = () => requestAnimationFrame(this.setParallax)
+    // window.addEventListener('resize', eventHandler)
+    // window.addEventListener('scroll', eventHandler)
+    // // Remove the scroll hanlder when the
+    // // component is destroyed.
+    // this.$on(`hook:destroyed`, () => {
+    //   window.removeEventListener('resize', eventHandler)
+    //   window.removeEventListener('scroll', eventHandler)
+    // })
+    
+    require('particles.js')
+    window.particlesJS('hero', particleConfig)
+    
   },
   computed: {
     browserPreviewSlide () {
@@ -246,7 +315,10 @@ export default {
       this.offset = window.scrollY
     },
     goToBuy() {
-      this.$refs['cta'].scrollIntoView({ behavior: 'smooth' })
+      document.getElementById('cta').scrollIntoView({ behavior: 'smooth' })
+    },
+    goToInfo() {
+      document.getElementById('info').scrollIntoView({ behavior: 'smooth' })
     }
   }
 }
@@ -261,15 +333,6 @@ export default {
 //   font-style: normal
 //   font-weight: 700
 //   font-display: swap
-
-
-.platform-logo
-  opacity: 0.5
-  filter: contrast(0.14) grayscale(1) brightness(1.8);
-  transition: filter ease-out .5s
-
-  &:hover
-    filter: contrast(1) grayscale(0) brightness(1.2);
 
 .section
   @apply relative flex flex-col items-center justify-center p-6 min-h-screen text-center overflow-visible overflow-x-hidden
@@ -286,10 +349,10 @@ export default {
     font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
 
   &__sub-title
-    @apply text-2xl leading-tight font-semibold text-gray-400 max-w-4xl m-1
+    @apply text-2xl leading-tight font-semibold text-gray-400 max-w-4xl m-2
 
 .footer
-  @apply bg-black flex flex-col items-center justify-center h-48
+  @apply bg-black flex flex-col items-center justify-center h-32
 
   &__title
     @apply text-lg font-bold m-2 h-5 opacity-75
@@ -305,21 +368,26 @@ export default {
 
 
 .section-hero
-  background-image: radial-gradient(50% 17% at top, rgba(23,2,36,0.43) 0%, rgba(0,0,0,0.0) 100%)
+  @apply pt-16
 
-  &__body
-    @apply text-xl text-gray-100 max-w-2xl m-1
+  &__sub-title
+    @apply max-w-2xl
   
   &__button
-    @apply py-2 px-6 m-3 rounded-lg text-xl font-bold
-    background-image: linear-gradient(135deg, #FF7777 0%, #CB42FF 100%);
+    @apply py-2 px-8 m-3 text-gray-100 text-2xl font-bold
+    border-radius: 5px
+    background-image: linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
     transition: transform .3s ease-out
 
     &:hover
       transform: scale(1.05)
 
+    &--sec
+      background-image: none
+      box-shadow: inset 0 0 0 3px white
+
   &__sub-text
-    @apply text-sm font-light text-gray-400
+    @apply text-sm font-light text-gray-400 m-1
 
   &__browser-img
     @apply absolute object-contain
@@ -356,7 +424,7 @@ export default {
       padding-left: 0
 
   &__list-item
-    @apply my-8 text-gray-400
+    @apply my-6 text-gray-400
   
     &__title
       @apply inline-block text-xl font-bold text-gray-100 my-3 leading-none
@@ -365,6 +433,9 @@ export default {
         @apply inline-block w-3 h-3 mx-4 rounded-full bg-gray-500
         content: ''
         margin-left: calc(-0.75rem - 1rem); // bring the bullet in front of the title (w - mr)
+    
+    &:first-child
+      @apply mt-0
   
     &:nth-child(1) .info-section__list-item__title::before
       background-color: #70DABC
@@ -474,48 +545,23 @@ export default {
   min-height: unset
   padding: 1rem
 
-.cta-card
-  @apply flex flex-col justify-between items-start py-20 px-16 m-32 mt-0 rounded-lg text-left
-  width: 1080px
-  max-width: 100% 
-  background-image: url(/img/discount.svg), linear-gradient(176deg, rgba(0,0,0,0.45) 0%, rgba(33,33,33,0.35) 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
-  background-position: bottom 0rem right 0rem, center, center
-  background-repeat: no-repeat
-  background-size: 40%, 100%, 100%
-  // box-shadow: 0 0 32px 0px #dbceb645
+.email-form
+  @apply flex flex-row justify-center m-4 whitespace-no-wrap max-w-full
 
-  @media (max-width: 920px)
-    @apply p-8
-    background-image: linear-gradient(176deg, rgba(0,0,0,0.2) 0%, rgba(33,33,33,0.15) 100%), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
-    background-position: center, center
-    background-size: 100%, 100%
-
-  &__title
-    @apply text-5xl leading-none font-extrabold max-w-2xl
-    font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
-    
-    del
-      text-decoration-color: #e33c3c
-
-  &__body
-    @apply my-2 text-lg text-gray-100 font-semibold max-w-2xl
-
-  &__form
-    @apply flex flex-row justify-center whitespace-no-wrap max-w-full
-
-    & > *:not(:first-child)
-      @apply mt-2 ml-4
+  & > *:not(:first-child)
+    @apply mt-2 ml-4
 
   &__input
-    @apply py-3 px-8 mt-2 bg-white text-gray-800 font-bold text-xl
+    @apply py-2 px-6 mt-2 bg-white text-gray-800 font-bold text-xl
     border-radius: 5px
     max-width: calc(100% - 4rem - 1rem)
 
   &__button
-    @apply py-3 px-8 bg-black text-gray-100 font-bold text-xl
+    @apply py-2 px-6 bg-black text-gray-100 font-bold text-xl
     border-radius: 5px;
     transition: transform .3s ease-out
     min-width: 4rem
+    border: 2px solid white
 
 
     &--mobile
@@ -545,20 +591,8 @@ export default {
   input
     @apply appearance-none
 
-.wip-alert
-  @apply  py-2 px-4 bg-red-600 font-bold text-sm rounded-lg text-center appearance-none
-  box-sizing: border-box
-
-  &:hover
-    @apply bg-red-500
-
-input:checked ~ .wip-alert
-  @apply hidden
-
-@keyframes bounce
-  from
-    transform: translateX(-50%) translateY(-4px)
-
-  to
-    transform: translateX(-50%) translateY(0px)
+.particles-js-canvas-el
+  position: absolute
+  top: 0
+  z-index: -1
 </style>

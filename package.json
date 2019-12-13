@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "nuxt": "^2.10.2",
+    "particles.js": "^2.0.0",
     "prismjs": "^1.17.1",
     "vue-prism-editor": "^0.3.0"
   },
