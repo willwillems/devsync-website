@@ -8,8 +8,8 @@
           button.section-hero__button( @click="goToBuy" ) Watch Demo
           button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
         p.section-hero__sub-text 30-Day Money-Back Guarantee
-      img.section-hero__browser-img( src="img/browser-preview.png" alt="Browser preview" :style="browserPreviewSlide" )
-      img.section-hero__editor-img( src="img/editor-preview.png" alt="Editor preview" :style="editorPreviewSlide" )
+      img.section-hero__browser-img( src="img/browser-preview.webp" alt="Browser preview" :style="browserPreviewSlide" )
+      img.section-hero__editor-img( src="img/editor-preview.webp" alt="Editor preview" :style="editorPreviewSlide" )
       // .section-hero__editor-img( alt="Editor preview" :style="'background-image: url(\"img/editor-frame-square.png\");' + editorPreviewSlide" ) 
         pre(style="margin-left: 25%; margin-top: 18%;")
           code Hey man 
@@ -155,7 +155,7 @@ const particleConfig = {
       }
     },
     "opacity": {
-      "value": 0.2,
+      "value": 0.3,
       "random": false,
       "anim": {
         "enable": false,
@@ -384,7 +384,7 @@ export default {
 
     &--sec
       background-image: none
-      box-shadow: inset 0 0 0 3px white
+      box-shadow: inset 0 0 0 3px #cbd5e0
 
   &__sub-text
     @apply text-sm font-light text-gray-400 m-1
