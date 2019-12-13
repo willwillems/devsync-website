@@ -424,7 +424,7 @@ export default {
       padding-left: 0
 
   &__list-item
-    @apply my-6 text-gray-400
+    @apply my-6 font-medium text-gray-400
   
     &__title
       @apply inline-block text-xl font-bold text-gray-100 my-3 leading-none
@@ -496,7 +496,7 @@ export default {
       @apply m-0
 
   &__body
-    @apply m-3 mt-2 text-base leading-normal text-gray-500
+    @apply m-3 mt-2 text-base font-medium leading-normal text-gray-500
 
     @media(max-width: 600px)
       @apply m-0 mt-4
