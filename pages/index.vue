@@ -151,7 +151,7 @@ const particleConfig = {
       }
     },
     "opacity": {
-      "value": 0.3,
+      "value": 0.4,
       "random": false,
       "anim": {
         "enable": false,
