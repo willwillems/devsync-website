@@ -1,7 +1,7 @@
 <template lang="pug">
   .cta-card( ref='cta' )
     h1.cta-card__title Get your DevSync licence <del>now</del> soon.
-    p.cta-card__body  No hassle, 30 money back guarantee.
+    p.cta-card__body No hassle, 30 money back guarantee.
     a.cta-card__button( href="https://gum.co/qnXnf" ) Pre-order €40 <del>€80</del>.
 </template>
 
@@ -28,6 +28,9 @@
   &__title
     @apply text-5xl leading-none font-extrabold max-w-2xl
     font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
+
+    @media (max-width: 500px)
+      @apply text-4xl
 
   &__body
     @apply my-4 text-lg text-gray-100 font-semibold max-w-2xl
