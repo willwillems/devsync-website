@@ -328,6 +328,10 @@ export default {
 //   font-style: normal
 //   font-weight: 700
 //   font-display: swap
+$screen-sm-min: 576px
+@mixin sm
+   @media (max-width: #{$screen-sm-min})
+       @content
 
 .section
   @apply relative flex flex-col items-center justify-center p-6 min-h-screen text-center overflow-visible overflow-x-hidden
@@ -343,8 +347,14 @@ export default {
     @apply text-5xl leading-none font-bold m-1 max-w-3xl
     font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial'
 
+    @include sm
+      @apply text-4xl
+
   &__sub-title
     @apply text-2xl leading-tight font-semibold text-gray-400 max-w-4xl m-2
+
+    @include sm
+      @apply text-xl
 
 .footer
   @apply bg-black flex flex-col items-center justify-center h-32
@@ -475,14 +485,14 @@ export default {
   @apply flex flex-row text-left my-4 max-w-2xl
   margin: .5rem -0.5rem
 
-  @media(max-width: 600px)
+  @include sm
     @apply flex-col
 
   &__icon
     @apply h-16 w-16 m-4 flex-shrink-0
     margin-bottom: 0; // for when it collapses on mobile
 
-    @media(max-width: 600px)
+    @include sm
       @apply h-20 w-20
 
   &__title
@@ -494,7 +504,7 @@ export default {
 .compatibility-container
   @apply flex flex-row items-center justify-center flex-wrap m-4 max-w-4xl
 
-  @media(max-width: 600px)
+  @include sm
     @apply m-0 my-4
 
 .compatibility-indicator
@@ -502,7 +512,7 @@ export default {
   border-radius: 5px
   transition: opacity ease-out .3s
 
-  @media(max-width: 600px)
+  @include sm
     @apply h-20 w-20 m-2
 
   &:hover
