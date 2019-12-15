@@ -11,7 +11,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'title', name: 'title', content: 'Devsync | Visually edit your CSS in-browser.' },
       { hid: 'description', name: 'description', content: 'A modern visual design tool that live-sync\'s CSS edits with your IDE. Speed up your workflow now!' },
-      { name: 'theme-color', content: '#7CBBFF' },
+      { name: 'theme-color', content: '#14171D' },
       // -- Open Graph / Facebook --
       { property: 'og:type',  content: 'website' },
       { property: 'og:url',  content: 'https://devsync.co/' },
