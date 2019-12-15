@@ -47,26 +47,22 @@
         h2.section__sub-title Visually edit your design while automatically changing your code.
         .section-text__paragraphs
           .info-paragraph
-            .info-paragraph__icon
-              AppAlignLogo
+            AppAlignLogo.info-paragraph__icon
             div
               .info-paragraph__title Stop context switching
               .info-paragraph__body Everytime you switch from browser to editor to adjust your design you lose time and focus. Devsync enables you to directly apply adjustments in both places.
           .info-paragraph
-            .info-paragraph__icon
-              AppSizingLogo
+            AppSizingLogo.info-paragraph__icon
             div
               .info-paragraph__title Design with your eyes
               .info-paragraph__body CSS determines both technical layout and visual aesthetic. Skip the step of predicting what your CSS will look like and the cumbersome process of adjusting from there. Directly design what looks good and save time.
           .info-paragraph
-            .info-paragraph__icon
-              AppPositionLogo
+            AppPositionLogo.info-paragraph__icon
             div
               .info-paragraph__title Iterate quickly  
               .info-paragraph__body Try things out, quickly check out what your ideas look like and either save or discard them.
           .info-paragraph
-            .info-paragraph__icon
-              AppSettingsLogo
+            AppSettingsLogo.info-paragraph__icon
             div
               .info-paragraph__title Works with your tools
               .info-paragraph__body Devsync integrates with Chrome, VS Code and soon with other editors. It is compatible with most preprocessor, check below for compatibility.
@@ -477,29 +473,24 @@ export default {
       opacity: .2
 
 .info-paragraph
-  @apply flex flex-row text-left my-2 max-w-2xl
+  @apply flex flex-row text-left my-4 max-w-2xl
+  margin: .5rem -0.5rem
 
   @media(max-width: 600px)
     @apply flex-col
 
   &__icon
-    @apply m-3 ml-0
-    width: 60px
+    @apply h-16 w-16 m-4 flex-shrink-0
+    margin-bottom: 0; // for when it collapses on mobile
 
     @media(max-width: 600px)
-      @apply my-6 mx-0
+      @apply h-20 w-20
 
   &__title
-    @apply m-3 mb-0 text-2xl font-bold leading-tight
-
-    @media(max-width: 600px)
-      @apply m-0
+    @apply m-4 text-2xl font-bold leading-tight
 
   &__body
-    @apply m-3 mt-2 text-base font-medium leading-normal text-gray-500
-
-    @media(max-width: 600px)
-      @apply m-0 mt-4
+    @apply m-4 text-base font-medium leading-normal text-gray-500
 
 .compatibility-container
   @apply flex flex-row items-center justify-center flex-wrap m-4 max-w-4xl
