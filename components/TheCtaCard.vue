@@ -33,7 +33,7 @@
       @apply text-4xl
 
   &__body
-    @apply my-4 text-lg text-gray-100 font-semibold max-w-2xl
+    @apply my-4 text-lg text-gray-100 font-medium max-w-2xl
 
   &__form
     @apply flex flex-row justify-center whitespace-no-wrap max-w-full
