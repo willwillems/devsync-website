@@ -4,7 +4,7 @@
       .section__body
         h1.section__title Visual design tool that live-sync's CSS edits with your editor.
         h2.section__sub-title.section-hero__sub-title Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in real-time.
-        .m3
+        .m-2
           button.section-hero__button( @click="goToBuy" ) Watch Demo
           button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
         p.section-hero__sub-text 30-Day Money-Back Guarantee
@@ -352,6 +352,7 @@ $screen-sm-min: 576px
 
   &__sub-title
     @apply text-2xl leading-tight font-semibold text-gray-400 max-w-4xl m-2
+    color: #a2a8b1;
 
     @include sm
       @apply text-xl
@@ -379,7 +380,7 @@ $screen-sm-min: 576px
     @apply max-w-2xl
   
   &__button
-    @apply py-2 px-8 m-3 text-gray-100 text-2xl font-bold
+    @apply py-2 px-8 m-1 text-gray-100 text-2xl font-bold
     border-radius: 5px
     background-image: linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
     transition: transform .3s ease-out
@@ -389,7 +390,7 @@ $screen-sm-min: 576px
 
     &--sec
       background-image: none
-      box-shadow: inset 0 0 0 3px #cbd5e0
+      // box-shadow: inset 0 0 0 3px #cbd5e0 // inset border
 
   &__sub-text
     @apply text-sm font-light text-gray-400 m-1
@@ -490,10 +491,6 @@ $screen-sm-min: 576px
 
   &__icon
     @apply h-16 w-16 m-4 flex-shrink-0
-    margin-bottom: 0; // for when it collapses on mobile
-
-    @include sm
-      @apply h-20 w-20
 
   &__title
     @apply m-4 text-2xl font-bold leading-tight
@@ -543,7 +540,6 @@ $screen-sm-min: 576px
 .section-cta
   background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,1) 70%);
   min-height: unset
-  padding: 1rem
 
 .email-form
   @apply flex flex-row justify-center m-4 whitespace-no-wrap max-w-full
