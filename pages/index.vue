@@ -101,7 +101,6 @@
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           | <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55a5fbebab9bb447102de7229_42d8840ff4" tabindex="-1" value=""></div>
           input.email-form__button( type="submit" value="Subscribe!" name="subscribe" id="mc-embedded-subscribe" )
-          input.email-form__button.email-form__button--mobile( type="submit" value="→" name="subscribe" id="mc-embedded-subscribe" )
     footer.footer
       // img.footer__title( src="/img/logo-mono.svg" )
       ul.footer__link-list
@@ -543,27 +542,16 @@ export default {
     @apply mt-2 ml-4
 
   &__input
-    @apply py-2 px-6 mt-2 bg-white text-gray-800 font-bold text-xl
+    @apply py-2 px-6 mt-2 bg-white text-gray-800 font-bold text-xl 
     border-radius: 5px
-    max-width: calc(100% - 4rem - 1rem)
+    min-width: 120px
 
   &__button
-    @apply py-2 px-6 bg-black text-gray-100 font-bold text-xl
+    @apply py-2 px-6 bg-black text-gray-100 font-bold text-xl flex-shrink-0
     border-radius: 5px;
     transition: transform .3s ease-out
     min-width: 4rem
     border: 2px solid white
-
-
-    &--mobile
-      @apply p-3 hidden
-
-      @media (max-width: 920px)
-        display: block;
-      
-    &:not(.cta-card__button--mobile)
-      @media (max-width: 920px)
-        display: none;
 
     &:hover, &:focus
       transform: scale(1.05)

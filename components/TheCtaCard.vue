@@ -49,17 +49,6 @@
     transition: transform .3s ease-out
     min-width: 4rem
 
-
-    &--mobile
-      @apply p-3 hidden
-
-      @media (max-width: 920px)
-        display: block;
-      
-    &:not(.cta-card__button--mobile)
-      @media (max-width: 920px)
-        display: none;
-
     &:hover, &:focus
       transform: scale(1.05)
       //box-shadow: inset 0 0 0 2px white;
