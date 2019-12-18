@@ -23,5 +23,5 @@ html
   margin: 0
 
 h1, h2, h3, h4, h5, h6
-  font-family: 'SF Pro Display'
+  font-family: 'SF Pro Display', 'SF Pro Text', Arial, 'Helvetica Neue', Roboto, sans-serif
 </style>
