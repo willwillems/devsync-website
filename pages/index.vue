@@ -185,7 +185,7 @@ $screen-sm-min: 576px
     @apply text-xl leading-tight font-medium text-gray-400 max-w-4xl m-2
 
   &__display
-    // transform: translateX(-20%);
+    @apply max-w-full
 
 .footer
   @apply bg-black flex flex-col items-center justify-center h-32

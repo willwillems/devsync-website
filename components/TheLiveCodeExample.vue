@@ -1,35 +1,34 @@
 <template lang="pug">
 .example-container( @mouseover="demo" )
-  .relative.w-full.h-full
-    PrismEditor.code-editor( :code="codeExampleText" lineNumbers language="css" )
-    .input-row.controller
-      AppToggleButton(
-        title="Italic"
-        v-model="fontStyle"
-        on-value="italic"
-        off-value="normal"
-        :button-icon="itallicButtonIcon"
-        data-controls-prop="font-style"
-      )
-      AppDataList(
-        title="Weight"
-        v-model="fontWeight"
-        :disabled="!fontWeight"
-        :placeholder="''"
-        :list-options="weightOptions"
-        :apply-property="'font-weight'"
-        data-controls-prop="font-weight"
-      )
-      AppInputSelect(
-        title="Size"
-        v-model="fontSize"
-        :disabled="!fontSize"
-        :placeholder="''"
-        :select-options="sizeOptions"
-        :border-color="''"
-        data-controls-prop="font-size"
-      )
-    style {{ codeExampleText }}
+  PrismEditor.code-editor( :code="codeExampleText" lineNumbers language="css" )
+  .input-row.controller
+    AppToggleButton(
+      title="Italic"
+      v-model="fontStyle"
+      on-value="italic"
+      off-value="normal"
+      :button-icon="itallicButtonIcon"
+      data-controls-prop="font-style"
+    )
+    AppDataList(
+      title="Weight"
+      v-model="fontWeight"
+      :disabled="!fontWeight"
+      :placeholder="''"
+      :list-options="weightOptions"
+      :apply-property="'font-weight'"
+      data-controls-prop="font-weight"
+    )
+    AppInputSelect(
+      title="Size"
+      v-model="fontSize"
+      :disabled="!fontSize"
+      :placeholder="''"
+      :select-options="sizeOptions"
+      :border-color="''"
+      data-controls-prop="font-size"
+    )
+  style {{ codeExampleText }}
 </template>
 
 <script>
@@ -107,12 +106,17 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.example-container
+  position: relative
+  width: 100%
+
 .code-editor
   // fix line number problem
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
+  // justify-content: stretch;
   align-items: flex-start;
+  margin-left: 4rem;
 
   & /deep/ .prism-editor__line-numbers
     width: 3rem;
@@ -131,7 +135,7 @@ export default {
   border-radius: 5px;
   position: absolute;
   bottom: 18%;
-  left: -20%;
+  left: 0%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.18);
   font-size: 12px;
 
@@ -160,6 +164,7 @@ export default {
     border: 2px solid var(--input-border-color)
     border-radius: 3px
     font-family: 'Cousine', monospace
+    white-space: nowrap;
 
     &--disabled
       filter: opacity(0.5) contrast(0.7)

@@ -105,9 +105,9 @@ export default {
 }
 
 .input-select {
-  display: flex;
-  flex-direction: row;
-  padding: 0;
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 0 !important;
 
   &__input, &__select {
     margin: 0;
