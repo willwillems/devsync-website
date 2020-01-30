@@ -3,7 +3,7 @@
 ## Selling points that are most desirable about your product.
 
 - It's a very cool toy
-- It speeds up your productivity, get work don faster.
+- It speeds up your productivity, get work done faster.
 - You get to be more creative & actually design a page
 - Stop context switching which slows you down
 
@@ -41,6 +41,8 @@ Be specific, if the visitor reads only this text on your page, will they know ex
 "Design webpages visually and live-sync the edits with your IDE/editor"
 
 "Edit CSS visually. Live-sync the edits with your IDE/editor"
+
+"Stop finicking with your CSS. Perfect your design visually."
 
 ## Subheader
 

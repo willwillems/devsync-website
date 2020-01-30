@@ -8,6 +8,7 @@
         v-model="fontStyle"
         on-value="italic"
         off-value="normal"
+        :button-icon="itallicButtonIcon"
         data-controls-prop="font-style"
       )
       AppDataList(
@@ -43,6 +44,8 @@ import AppToggleButton from './demo/AppToggleButton.vue'
 const sizeOptions = ['px', 'em', 'rem', '%']
 const weightOptions = ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 
+const itallicButtonIcon = 'img/demo/format_italic-24px.svg'
+
 export default {
   components: {
     PrismEditor,
@@ -54,6 +57,7 @@ export default {
     return {
       sizeOptions,
       weightOptions,
+      itallicButtonIcon,
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: '3rem',
@@ -72,8 +76,6 @@ export default {
   font-style: ${this.fontStyle};
   transition: all linear .3s;
 }
-
-
 
 
 
@@ -105,11 +107,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.example-container
-  position: absolute;
-  top: 23%;
-  right: 2rem;
-
 .code-editor
   // fix line number problem
   display: flex;
@@ -127,8 +124,6 @@ export default {
 
     &:focus
       outline: none
-  @media(max-width: 600px)
-    display: none
 
 .controller
   text-align: left;
@@ -139,14 +134,6 @@ export default {
   left: -20%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.18);
   font-size: 12px;
-
-  @media(max-width: 600px)
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
 
 /deep/ 
   --main-txt-color: #EDEDED

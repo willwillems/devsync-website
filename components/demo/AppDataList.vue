@@ -73,6 +73,7 @@ export default {
       return {
         ...this.$listeners,
         input: event => {
+          if (this.value === event.target.value.trim()) return // vallue did not change, otherwise whitespace gets parsed and trimmed by browser
           this.$emit('input', event.target.value)
         }
       }
