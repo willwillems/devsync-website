@@ -167,12 +167,13 @@ $screen-sm-min: 576px
       width: 32rem
 
   &__title
-    @apply text-5xl font-bold m-1 max-w-3xl
+    @apply font-bold m-1 max-w-3xl
+    font-size: 3.5rem
     line-height: 1em // Tailwind doesn't provide unit, is annoying for demo
     font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial' sans-serif
 
     @include sm
-      @apply text-4xl
+      font-size: 3rem
 
   &__sub-title
     @apply text-2xl leading-tight font-semibold text-gray-400 max-w-4xl m-2
