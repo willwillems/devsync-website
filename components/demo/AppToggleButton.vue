@@ -1,5 +1,5 @@
 <template lang="pug">
-  label.input-container
+  label.input-container.toggle-button-input__container
     span.input-title {{ title }}
     input.input.toggle-button-input(
         type="checkbox"
@@ -9,7 +9,7 @@
         v-on="listeners"
         v-bind="$attrs"
         :class=`{ 'input--disabled': disabled }`
-        :style="`border-color: ${borderColor || ''};`"
+        :style="`border-color: ${borderColor || ''}; background-image: url(${activeButtonIcon});`"
         @click.meta.prevent="$emit('input', null)"
       )
 
@@ -41,10 +41,23 @@ export default {
       type: Boolean
     },
     buttonIcon: {
-      type: String
+      validator: val => (
+        typeof val === 'string'
+        || ( val.length === 2
+          && typeof val[0] === 'string'
+          && typeof val[1] === 'string'
+          )
+      )
     },
   },
   computed: {
+    activeButtonIcon () {
+      if ( typeof this.buttonIcon === 'string' ) return this.buttonIcon
+      if ( typeof this.buttonIcon === 'object' ) return (this.value === this.onValue)
+        ? this.buttonIcon[1]
+        : this.buttonIcon[0]
+      return ''
+    },
     listeners() {
       return {
         ...this.$listeners,
@@ -68,4 +81,7 @@ export default {
   
   &:checked
     background-color: #222222
+
+  &__container
+    @apply flex-grow-0
 </style>

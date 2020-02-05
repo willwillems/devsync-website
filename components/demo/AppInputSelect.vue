@@ -60,7 +60,7 @@ export default {
       return regexMatch(numericRegex)(this.placeholder) || ''
     },
     selectPlaceholder () {
-      return regexMatch(unitRegex)(this.placeholder) || '-'
+      return regexMatch(unitRegex)(this.placeholder) || ''
     }
   },
   methods: {
@@ -100,14 +100,14 @@ export default {
 
 <style lang="scss" scoped>
 .input-select-container {
-  flex-grow: 0;
+  min-width: 6rem;
+  flex-grow: 0; // this input should not grow first
 }
 
 .input-select {
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-  flex-grow: 0; // this elememnt should never grow in a row
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 0 !important;
 
   &__input, &__select {
     margin: 0;
@@ -117,18 +117,23 @@ export default {
     border-radius: 0;
     background-color: inherit;
     padding: 0 .2rem;
-    flex-grow: 1;
     width: 2.5rem;
     text-align: center;
   }
 
   &__input {
-    width: 3em;
+    flex-grow: 1;
+    width: 4em;
+    min-width: 3em;
+    text-align: left;
+    padding: 0 .25em 0 1em;
   }
 
   &__select {
+    flex-grow: 0;
     border-left: 2px solid var(--input-border-color);
-    -webkit-appearance: button;
+    appearance: none;
+    -webkit-appearance: none;
     padding: 0 .5rem;
   }
 }

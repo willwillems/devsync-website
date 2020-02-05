@@ -1,0 +1,9 @@
+
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="white-space-nowrap" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bg" x="0" y="0" width="25" height="25"></rect>
+        <g id="icon" transform="translate(5.000000, 9.000000)" fill="#6B6B6B" fill-rule="nonzero">
+            <polygon id="Rectangle" points="1.11022302e-16 2.5 12.2498429 2.5 12.2352941 1.89431804e-15 16 3.5 12.2352941 7 12.240107 4.5 0 4.5"></polygon>
+        </g>
+    </g>
+</svg>
