@@ -1,7 +1,7 @@
 <template lang="pug">
   section.section.section--full.section-hero#hero
     .section__body
-      h1.section__title.section-hero__title#hero-title Stop finicking with your CSS. Perfect your design visually.
+      h1.section__title.section-hero__title#hero-title Stop finicking with your CSS. Perfect your design <i>visually</i>.
       h2.section__sub-title.section-hero__sub-title Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in your editor. Live.
       .m-2
         button.section-hero__button( @click="$emit('toggleDemo')" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}

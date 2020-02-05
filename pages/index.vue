@@ -20,9 +20,9 @@
     .demo-overlay( v-if="overlayPosition" :style="overlayStyle" )
     transition( name="slide" )
       .demo( v-if="demoActive" )
-        img.demo__mock( src="img/demo-mock-top.png" )
+        img.demo__mock( src="img/demo-mock-top.png" @click="demoWarning" )
         TheFontStyleSection( @style="setHeroStyle" )
-        img.demo__mock( src="img/demo-mock-bottom.png" )
+        img.demo__mock( src="img/demo-mock-bottom.png" @click="demoWarning" )
     transition( name="slide-up" )
       TheCodeEditor.demo-editor( v-if="demoActive" v-model="styleVal" )
 </template>
@@ -92,6 +92,9 @@ export default {
       document
         .getElementById('hero')
         .addEventListener('mouseleave', this.hideOverlay)
+    },
+    demoWarning () {
+      alert('Demo: Only the Typography controls are available.')
     },
     deactivateDemo () {
       this.demoActive = false
@@ -168,7 +171,7 @@ $screen-sm-min: 576px
 
   &__title
     @apply font-bold m-1 max-w-3xl
-    font-size: 3.5rem
+    font-size: 3.2rem
     line-height: 1em // Tailwind doesn't provide unit, is annoying for demo
     font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial' sans-serif
 
@@ -215,7 +218,7 @@ $screen-sm-min: 576px
   border-left: solid 1px #525252
 
   &__mock
-    @apply w-full
+    @apply w-full cursor-not-allowed
     background-color: #2a2a2a
     filter: contrast(.9) blur(.1px)
 

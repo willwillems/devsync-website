@@ -5,28 +5,28 @@
       h2.section__sub-title Edit your CSS visually and save time.
       .info-section__content
         .info-section__demo-container
-          img.info-section__demo-img( v-if="activeSection === 0" src="img/browser-demo.webp" alt="Browser demo")
+          img.info-section__demo-img( v-if="activeSection >= 0" src="img/browser-demo.webp" alt="Browser demo")
           video.info-section__demo-img( v-else-if="activeSection === 1" alt="Browser demo" autoplay muted )
             source( src="img/ROOKHOK%20PREVIEW.mp4" type="video/mp4" )
           video.info-section__demo-img( v-else alt="Browser demo" autoplay muted )
             source( src="img/ROOKHOK%20PREVIEW.mp4" type="video/mp4" )
         ul.info-section__list
           li.info-section__list-item( @mouseover="selectSection(0)" :class="{'info-section__list-item--active': (activeSection === 0)}" )
-            h3.info-section__list-item__title CSS that makes visual sense
+            h3.info-section__list-item__title Edit websites visually
             p
-              | Create CSS that looks good and makes sense visually. Iterate quickly, try things out on a whim to see how they look but be able to save your work.
+              | Create CSS that looks good and makes sense. Iterate quickly. Try things out on a whim, see how they look and be able to save your work.
           li.info-section__list-item( @mouseover="selectSection(1)" :class="{'info-section__list-item--active': (activeSection === 1)}" )
-            h3.info-section__list-item__title Live-sync your edits
+            h3.info-section__list-item__title Sync with your editor
             p
-              | To maximize productivity your edits are applied live trough a low-latency websocket connection with your editor and injected in the webpage trough the Chrome debugger. All without reloading.
+              | Your edits are applied live trough a low-latency connection with your editor and injected in the webpage trough the Chrome debugger. All without reloading for maximum speed.
           li.info-section__list-item( @mouseover="selectSection(2)" :class="{'info-section__list-item--active': (activeSection === 2)}" )
             h3.info-section__list-item__title No unmaintainable mystery CSS
             p
-              | All the CSS you add, edit or delete is part of a CSS rule you defined in your project. Rules Are added in a logical manner but feel free to run prettier on save, remember you are still working in your editor!
+              | The CSS classes you edit are defined in your project. CSS is added in a logical manner but feel free to run prettier on save, remember you are still working in your editor!
           li.info-section__list-item( @mouseover="selectSection(3)" :class="{'info-section__list-item--active': (activeSection === 3)}" )
-            h3.info-section__list-item__title Keep full fine-grained controll
+            h3.info-section__list-item__title Edit any website
             p
-              | Want to edit a weird CSS property, you can always just quickly hop into your editor.
+              | Sometimes you just want to play around with a random website. Once your done either copy your edits with one click or just close Devsync.
 </template>
 
 <script>
