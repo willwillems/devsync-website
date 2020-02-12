@@ -63,6 +63,9 @@ export default {
   computed: {
     overlayStyle () {
       return `pointer-events: none; background-color: #4422FF22; border: 2px solid blue; position: absolute; top: ${this.overlayPosition.top}px; left: ${this.overlayPosition.left}px; width: ${this.overlayPosition.width}px; height: ${this.overlayPosition.height}px;`
+    },
+    supportsStyleMaps () {
+      return ("styleMap" in document.styleSheets[0].cssRules[0])
     }
   },
   methods: {
@@ -74,6 +77,7 @@ export default {
       return (this.demoActive ? this.deactivateDemo : this.activateDemo)()
     },
     activateDemo () {
+      if (!this.supportsStyleMaps) return alert('Hey, you\'re on a browser that doesn\'t support CSS stylemaps yet. To try out the demo use a browser like Google Chrome.')
       if (window.innerWidth < 800) return alert('Please try out the demo on a larger screen.')
       this.demoActive = true
       this.$el.style = 'width: calc(100% - 340px);'
@@ -130,6 +134,7 @@ export default {
   font-style: normal
   font-weight: 700
   font-display: swap
+
 $screen-sm-min: 576px
 @mixin sm
    @media (max-width: #{$screen-sm-min})
