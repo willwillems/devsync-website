@@ -62,7 +62,7 @@ export default {
   },
   computed: {
     overlayStyle () {
-      return `pointer-events: none; background-color: #4422FF22; border: 2px solid blue; position: absolute; top: ${this.overlayPosition.top}px; left: ${this.overlayPosition.left}px; width: ${this.overlayPosition.width}px; height: ${this.overlayPosition.height}px;`
+      return `pointer-events: none; background-color: #4422FF22; border: 2px solid blue; position: fixed; top: ${this.overlayPosition.top}px; left: ${this.overlayPosition.left}px; width: ${this.overlayPosition.width}px; height: ${this.overlayPosition.height}px;`
     },
     supportsStyleMaps () {
       return ("styleMap" in document.styleSheets[0].cssRules[0])
