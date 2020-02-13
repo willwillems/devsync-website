@@ -157,7 +157,6 @@ export const mapProps = process.client
           .reduce((cur, acc) => [...acc.cssRules, ...cur], [])
           .filter(el => el.selectorText && el.selectorText.includes(this.activeElSelector))
         const { styleMap, style } = styleRules[styleRules.length - 1]
-        console.log(style)
         return style[alias]
       }
       const set = function (val) {
