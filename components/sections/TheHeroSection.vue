@@ -4,7 +4,7 @@
       h1.section__title.section-hero__title#hero-title Stop finicking with your CSS. Perfect your design <i>visually</i>.
       h2.section__sub-title.section-hero__sub-title Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in your editor. Live.
       .m-2
-        button.section-hero__button( @click="$emit('toggleDemo')" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
+        button.section-hero__button.section-hero__button--bounce( @click="$emit('toggleDemo')" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
         button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
       p.section-hero__sub-text 30-Day Money-Back Guarantee
     img.section-hero__browser-img( src="img/browser-preview.webp" alt="Browser preview" )
@@ -130,6 +130,12 @@ export default {
       background-image: none
       // box-shadow: inset 0 0 0 3px #cbd5e0 // inset border
 
+    &--bounce
+      animation-name: bounce
+      animation-duration: 2s
+      animation-iteration-count: infinite
+      animation-direction: alternate
+
   &__sub-text
     @apply text-sm font-light text-gray-400 m-1
 
@@ -155,4 +161,11 @@ export default {
     @media (max-width: 920px)
       display: none
 
+@keyframes bounce
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.03)
+  100%
+    transform: scale(1)
 </style>
