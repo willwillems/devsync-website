@@ -21,7 +21,7 @@
           li.info-section__list-item( @mouseover="selectSection(0)" :class="{'info-section__list-item--active': (activeSection === 0)}" )
             h3.info-section__list-item__title Edit websites visually
             p
-              | Create CSS that looks good and makes sense. Iterate quickly. Try things out on a whim, see how they look and be able to save your work.
+              | Design styling that looks good and makes sense. Iterate quickly. Try things out on a whim, see how they look and be able to save your work.
           li.info-section__list-item( @mouseover="selectSection(1)" :class="{'info-section__list-item--active': (activeSection === 1)}" )
             h3.info-section__list-item__title Sync with your editor
             p
@@ -29,11 +29,11 @@
           li.info-section__list-item( @mouseover="selectSection(2)" :class="{'info-section__list-item--active': (activeSection === 2)}" )
             h3.info-section__list-item__title Edit any website
             p
-              | Sometimes you just want to play around with a random website. Once your done either copy your edits with one click or just close Devsync.
+              | Sometimes you just want to play around with a random website. Want to save your result? You can copy your edited CSS with one click.
           li.info-section__list-item( @mouseover="selectSection(3)" :class="{'info-section__list-item--active': (activeSection === 3)}" )
             h3.info-section__list-item__title No unmaintainable mystery CSS
             p
-              | The CSS classes you edit are defined in your project. CSS is added in a logical manner but feel free to run prettier on save, remember you are still working in your editor!
+              | The CSS classes you edit are defined in your code. CSS is added in a logical manner but feel free to run something like prettier on save, remember you are still working in your editor!
     video.info-section__video-player( v-if="videoIsFullScreen" :alt="fullScreenVideo.alt" autoplay controls )
       source( :src="fullScreenVideo.src" type="video/mp4" )
 </template>

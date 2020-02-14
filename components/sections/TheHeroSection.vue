@@ -2,7 +2,7 @@
   section.section.section--full.section-hero#hero
     .section__body
       h1.section__title.section-hero__title#hero-title Webflow-like extension that live-syncs with your code editor.
-      h2.section__sub-title.section-hero__sub-title Design quicker. Edit style without touching CSS. Devsync finds your CSS and edits it in your editor. Live.
+      h2.section__sub-title.section-hero__sub-title Design quicker. Edit your CSS without writing CSS. Devsync finds your CSS and edits it through your editor. Live.
       .m-2
         button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
         button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
