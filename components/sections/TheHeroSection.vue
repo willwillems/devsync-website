@@ -1,10 +1,10 @@
 <template lang="pug">
   section.section.section--full.section-hero#hero
     .section__body
-      h1.section__title.section-hero__title#hero-title Stop finicking with your CSS. Perfect your design <i>visually</i>.
-      h2.section__sub-title.section-hero__sub-title Design quicker. Devsync uses the browser's debugger to find your CSS and edit it in your editor. Live.
+      h1.section__title.section-hero__title#hero-title Webflow-like extension that live-syncs with your code editor.
+      h2.section__sub-title.section-hero__sub-title Design quicker. Edit style without touching CSS. Devsync finds your CSS and edits it in your editor. Live.
       .m-2
-        button.section-hero__button.section-hero__button--bounce( @click="$emit('toggleDemo')" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
+        button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
         button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
       p.section-hero__sub-text 30-Day Money-Back Guarantee
     img.section-hero__browser-img( src="img/browser-preview.webp" alt="Browser preview" )
@@ -97,12 +97,14 @@ export default {
     window.particlesJS('hero', particleConfig)
   },
   methods: {
-    goToBuy() {
-      document.getElementById('cta').scrollIntoView({ behavior: 'smooth' })
+    toggleDemo() {
+      this.$emit('toggleDemo')
+      this.demoActive ? sa("deactivate_demo") : sa("activate_demo")
     },
     goToInfo() {
       document.getElementById('info').scrollIntoView({ behavior: 'smooth' })
       if (this.demoActive) this.$emit('toggleDemo')
+      sa("go_to_info")
     }
   }
 }

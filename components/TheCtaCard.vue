@@ -6,6 +6,14 @@
     // .cta-card__fliepeltje $40 - $80
 </template>
 
+<script>
+export default {
+  mounted () {
+    this.$el.addEventListener('mousemove', () => sa('view_cta'), { once: true })
+  }
+}
+</script>
+
 <style lang="sass" scoped>
 .cta-card
   @apply relative flex flex-col justify-between items-start py-12 px-16 m-32 mt-0 rounded-lg text-left

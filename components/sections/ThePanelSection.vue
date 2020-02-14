@@ -5,11 +5,17 @@
       h2.section__sub-title Edit your CSS visually and save time.
       .info-section__content
         .info-section__demo-container
-          img.info-section__demo-img( v-if="activeSection >= 0" src="img/browser-demo.webp" alt="Browser demo")
-          video.info-section__demo-img( v-else-if="activeSection === 1" alt="Browser demo" autoplay muted )
-            source( src="img/ROOKHOK%20PREVIEW.mp4" type="video/mp4" )
-          video.info-section__demo-img( v-else alt="Browser demo" autoplay muted )
-            source( src="img/ROOKHOK%20PREVIEW.mp4" type="video/mp4" )
+          video.info-section__demo-img(
+            v-for="(video, i) in videos"
+            v-show="activeSection === i"
+            @click="showFullScreenVideo(i, $event)"
+            :alt="video.alt"
+            :key="i"
+            autoplay
+            muted
+          )
+            source( :src="video.src" type="video/mp4" )
+          img.info-section__demo-img( src="img/demo-coming.png" v-show="activeSection === 3")
         ul.info-section__list
           li.info-section__list-item( @mouseover="selectSection(0)" :class="{'info-section__list-item--active': (activeSection === 0)}" )
             h3.info-section__list-item__title Edit websites visually
@@ -20,25 +26,44 @@
             p
               | Your edits are applied live trough a low-latency connection with your editor and injected in the webpage trough the Chrome debugger. All without reloading for maximum speed.
           li.info-section__list-item( @mouseover="selectSection(2)" :class="{'info-section__list-item--active': (activeSection === 2)}" )
-            h3.info-section__list-item__title No unmaintainable mystery CSS
-            p
-              | The CSS classes you edit are defined in your project. CSS is added in a logical manner but feel free to run prettier on save, remember you are still working in your editor!
-          li.info-section__list-item( @mouseover="selectSection(3)" :class="{'info-section__list-item--active': (activeSection === 3)}" )
             h3.info-section__list-item__title Edit any website
             p
               | Sometimes you just want to play around with a random website. Once your done either copy your edits with one click or just close Devsync.
+          li.info-section__list-item( @mouseover="selectSection(3)" :class="{'info-section__list-item--active': (activeSection === 3)}" )
+            h3.info-section__list-item__title No unmaintainable mystery CSS
+            p
+              | The CSS classes you edit are defined in your project. CSS is added in a logical manner but feel free to run prettier on save, remember you are still working in your editor!
+    video.info-section__video-player( v-if="videoIsFullScreen" :alt="fullScreenVideo.alt" autoplay controls )
+      source( :src="fullScreenVideo.src" type="video/mp4" )
 </template>
 
 <script>
+const videos = [
+  { src: 'video/demo-visual-edit.mp4',  alt: 'Vidual editing demo' },
+  { src: 'video/demo-editor-sync.mp4',  alt: 'editor sync demo' },
+  { src: 'video/demo-edit-any.mp4',     alt: 'Edit any demo' },
+]
+
 export default {
   data () {
     return {
+      videos,
       activeSection: 0,
+      fullScreenVideoIndex: -1,
+      activeVideoSource: '',
       timer: null
     }
   },
   mounted () {
     this.selectSection(0, 3000)
+  },
+  computed: {
+    videoIsFullScreen () {
+      return this.fullScreenVideoIndex !== -1
+    },
+    fullScreenVideo () {
+      return this.videos[this.fullScreenVideoIndex]
+    }
   },
   methods: {
     selectSection (i, t) {
@@ -48,6 +73,21 @@ export default {
       window.clearInterval(this.timer)
       // if delay was given, set new timeout with delay that selects next section
       if (t) this.timer = window.setTimeout(() => this.selectSection((this.activeSection === 3) ? 0 : this.activeSection + 1, t), t)
+    },
+    showFullScreenVideo (i, ev) {
+      sa(`watch_video_${i}`)
+      const videoElement = ev.target // save reference to video el
+      videoElement.pause() // pause video ele
+      this.fullScreenVideoIndex = i // set fullscreen video
+      if (i > -1) {
+        const unselectSection = (ev) => {
+          if (ev.srcElement.tagName === 'VIDEO') return // if its the fs video element ignore
+          this.fullScreenVideoIndex = -1 // reset the fs video
+          videoElement.play() // ressume playing the demo video
+          document.body.removeEventListener('click', unselectSection) // clean up event handler
+        }
+        document.body.addEventListener('click', unselectSection) // listen to click outside video el
+      }
     }
   }
 }
@@ -117,4 +157,16 @@ export default {
     float: right
     min-width: 120vh
     height: auto
+    border-radius: 4px
+    box-shadow: 0 0 1rem 0.5rem #11111130
+
+  &__video-player
+    position: fixed;
+    max-width: calc(100vw - 4rem)
+    max-height: calc(100vh - 4rem)
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+    border-radius: 4px
+    z-index: 10
 </style>
