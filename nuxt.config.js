@@ -9,7 +9,7 @@ export default {
     script: [
       { src: '/js/drift.js'},
       { src: '/js/sa.js'},
-      { async: '', defer: '', src: "https://scripts.simpleanalyticscdn.com/latest.js", body: true }
+      { async: '', defer: '', src: "https://sa.devsync.co/latest.js", body: true }
     ],
     meta: [
       { charset: 'utf-8' },
