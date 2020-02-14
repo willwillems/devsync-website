@@ -126,15 +126,6 @@ export default {
 </script>
 
 <style lang='sass'>
-@import url('https://fonts.googleapis.com/css?family=Chivo:900&display=swap')
-@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Teko:700&display=swap')
-@font-face
-  font-family: CriteriaCF-ExtraBold
-  src: url("https://daily-fire.com/_nuxt/fonts/018872f.eot?#iefix") format("embedded-opentype"), url("https://daily-fire.com/_nuxt/fonts/d873106.woff2") format("woff2"), url("https://daily-fire.com/_nuxt/fonts/624b172.woff") format("woff"), url("https://daily-fire.com/_nuxt/fonts/d7030bd.ttf") format("truetype"), url("https://daily-fire.com/_nuxt/img/04bebb0.svg#youworkforthem") format("svg")
-  font-style: normal
-  font-weight: 700
-  font-display: swap
-
 $screen-sm-min: 576px
 @mixin sm
    @media (max-width: #{$screen-sm-min})
@@ -178,7 +169,7 @@ $screen-sm-min: 576px
     @apply font-bold m-1 max-w-3xl
     font-size: 3.2rem
     line-height: 1em // Tailwind doesn't provide unit, is annoying for demo
-    font-family: 'CriteriaCF-ExtraBold', 'SF Pro Display', 'Arial' sans-serif
+    font-family: 'SF Pro Display', 'Arial', sans-serif
 
     @include sm
       font-size: 3rem
