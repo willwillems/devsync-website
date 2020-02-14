@@ -8,7 +8,8 @@ export default {
     title: 'Devsync | Visually edit your CSS in-browser.',
     script: [
       { src: '/js/drift.js'},
-      { async: '', defer: '', src: "https://cdn.simpleanalytics.io/hello.js", body: true }
+      { src: '/js/sa.js'},
+      { async: '', defer: '', src: "https://scripts.simpleanalyticscdn.com/latest.js", body: true }
     ],
     meta: [
       { charset: 'utf-8' },
