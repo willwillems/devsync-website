@@ -6,8 +6,8 @@
         h1.section__title Edit visually.
         h2.section__text
           ul.detail-list.detail-list--purple
-            li Devsync works just like the visual editors you're used to.
-            li Use your eyes to design instead of hard-coding CSS property values.
+            li Design faster and be done quicker, apply edits using a familiar interface.
+            li Use your eyes to design instead of manually trying out CSS property values.
             li Iterate quickly. A super-low latency connection enables you to quickly try things out and see how they look.
       .section__display
         video(style="max-width: 340px; border-radius: 5px;" autoplay muted loop )
