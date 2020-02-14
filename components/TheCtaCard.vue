@@ -1,6 +1,6 @@
 <template lang="pug">
   .cta-card( ref='cta' )
-    h1.cta-card__title Get your DevSync licence now.
+    h1.cta-card__title Get your DevSync license now.
     p.cta-card__body No hassle, 30 day money back guarantee.
     a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €40 <del class="small-del">€80</del>.
     // .cta-card__fliepeltje $40 - $80
