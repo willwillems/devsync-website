@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt />
-    <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
+    <noscript><img src="https://sa.devsync.co/hello.gif" alt=""></noscript>
   </div>
 </template>
 
