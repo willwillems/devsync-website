@@ -115,7 +115,6 @@ export default {
     handleOverlay (ev) {    
       const bound = ev.srcElement.getBoundingClientRect()
       const { top, left, width, height } = bound
-      console.log({ top, left, width, height })
       this.overlayPosition = { top, left, width, height }
     },
     hideOverlay () {
