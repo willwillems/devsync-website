@@ -160,6 +160,7 @@ export default {
     height: auto
     border-radius: 4px
     box-shadow: 0 0 1rem 0.5rem #11111130
+    background-color: #303030
 
   &__video-player
     position: fixed;
