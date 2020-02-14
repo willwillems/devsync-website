@@ -13,6 +13,7 @@
             :key="i"
             autoplay
             muted
+            loop
           )
             source( :src="video.src" type="video/mp4" )
           img.info-section__demo-img( src="img/demo-coming.png" v-show="activeSection === 3")
