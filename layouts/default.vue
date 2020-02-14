@@ -10,7 +10,7 @@ html
   @apply text-white
   background-color: #14171d
   color: #FFFFFF
-  font-family: 'SF Pro Text', Arial, 'Helvetica Neue', Roboto, sans-serif
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, Roboto, sans-serif
   font-size: 16px
   word-spacing: 1px
   -ms-text-size-adjust: 100%
@@ -24,5 +24,5 @@ html
   margin: 0
 
 h1, h2, h3, h4, h5, h6
-  font-family: 'SF Pro Display', 'SF Pro Text', Arial, 'Helvetica Neue', Roboto, sans-serif
+  font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, Arial, sans-serif
 </style>
