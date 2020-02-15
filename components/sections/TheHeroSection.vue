@@ -1,7 +1,7 @@
 <template lang="pug">
   section.section.section--full.section-hero#hero
     .section__body
-      h1.section__title.section-hero__title#hero-title Webflow-like extension that live-syncs with your code editor.
+      h1.section-hero__title#hero-title Webflow-like extension that live-syncs with your code editor.
       h2.section__sub-title.section-hero__sub-title Design quicker. Edit your CSS without writing CSS. Devsync finds your CSS and edits it through your editor. Live.
       .m-2
         button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
@@ -114,7 +114,10 @@ export default {
 .section-hero
 
   &__title
-    @apply max-w-4xl
+    @apply max-w-4xl font-bold m-1
+    font-size: 3.2rem
+    line-height: 1em // Tailwind doesn't provide unit, is annoying for demo
+    // font-family: 'SF Pro Display', 'Arial', sans-serif
 
   &__sub-title
     @apply max-w-2xl
