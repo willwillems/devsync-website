@@ -187,7 +187,7 @@ export default {
   },
   data() {
     return {
-      activeElSelector: 'section__title',
+      activeElSelector: 'section-hero__title',
       sizeOptions,
       fontOptions,
       weightOptions,
