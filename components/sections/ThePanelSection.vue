@@ -148,19 +148,37 @@ export default {
       background-color: #5FE4FF
   
   &__demo-container
-    @apply m-6
+    @apply m-6 relative
     width: 30vw
 
     @media (max-width: 920px)
       display: none
 
+    &::after // fs button
+      content: ""
+      position: absolute
+      bottom: 1rem
+      right: 1rem
+      height: 3.5rem
+      width: 3.5rem 
+      border-radius: 50%
+      background-color: #1d2027
+      background-image: url("/img/fullscreen-icon.svg")
+      background-size: 45%
+      background-position: center
+      background-repeat: no-repeat
+      box-shadow: 0 0 20px 10px #1f1f1f7a
+      pointer-events: none
+
   &__demo-img
+    position: relative
     float: right
     min-width: 120vh
     height: auto
     border-radius: 4px
     box-shadow: 0 0 1rem 0.5rem #11111130
     background-color: #303030
+    cursor: pointer // click to full screen
 
   &__video-player
     position: fixed;
