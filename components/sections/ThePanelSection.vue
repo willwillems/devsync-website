@@ -97,6 +97,11 @@ export default {
 
 <style lang="sass" scoped>
 .info-section
+
+  // TODO: MAKE SECTION RESPONSIVE 
+  @media (max-width: 920px)
+    display: none;
+
   &__backdrop
     @apply p-12 rounded-lg
     background-color: #1d2027;
