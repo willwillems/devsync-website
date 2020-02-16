@@ -7,8 +7,8 @@
         button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
         button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
       p.section-hero__sub-text 30-Day Money-Back Guarantee
-    img.section-hero__browser-img( src="img/browser-preview.webp" alt="Browser preview" )
-    img.section-hero__editor-img( src="img/editor-preview.webp" alt="Editor preview" )
+    img.section-hero__browser-img( src="img/browser-preview.webp" alt="Browser preview" onerror="this.onerror=null; this.src='img/browser-preview.png'" )
+    img.section-hero__editor-img( src="img/editor-preview.webp" alt="Editor preview" onerror="this.onerror=null; this.src='img/editor-preview.png'" )
 </template>
 
 <script>

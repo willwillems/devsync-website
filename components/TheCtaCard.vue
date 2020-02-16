@@ -2,8 +2,8 @@
   .cta-card( ref='cta' )
     h1.cta-card__title Get your DevSync license now.
     p.cta-card__body No hassle, 30 day money back guarantee.
-    a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €40 <del class="small-del">€80</del>.
-    // .cta-card__fliepeltje $40 - $80
+    a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €39 <del class="small-del">€80</del>.
+    .cta-card__fliepeltje LAUNCH DISCOUNT
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
   @apply relative flex flex-col justify-between items-start py-12 px-16 m-32 mt-0 rounded-lg text-left
   width: 1080px
   max-width: 100% 
-  background-image: linear-gradient(176deg, rgba(0,0,0,0.4) 0%, rgba(33,33,33,0.3) 100%), url(/img/cta-screenshot.webp), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
+  background-image: linear-gradient(176deg, rgba(0,0,0,0.4) 0%, rgba(33,33,33,0.3) 100%), url(/img/cta-screenshot.png), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
   background-position: center, top 0 right -2rem, center
   background-repeat: no-repeat
   background-size: 100%, auto 100%, 100%
@@ -98,12 +98,13 @@ export default {
 
   &__fliepeltje
     position: absolute
-    top: 1.5rem
+    top: 1rem
     right: 0
-    padding: .5em 1em
+    padding: .5em 1.5em
     // color: #71490A
     color: transparent
-    font-weight: bolder
+    font-size: 1.25rem
+    font-weight: 900
     background-image: url("/img/fliepeltje.svg")
     background-repeat: no-repeat
     background-size: 100% 100%
