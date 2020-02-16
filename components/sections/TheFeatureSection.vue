@@ -21,7 +21,7 @@
           ul.detail-list.detail-list--right.detail-list--red
             li Sync edits in real time. No more finicking with devtools and losing your work.
             li Works with CSS, SASS, PostCSS, LESS and all other preprocessors that generate sourcemaps.
-            li Want to run prettier, edit an obscure CSS property, just jump into your editor.
+            li Stays fully editable. Need an obscure CSS property? Just jump into your editor.
       .section__display
         video(style="max-width: 340px; border-radius: 5px;" autoplay muted loop )
           source( src="/video/demo2.mp4" type="video/mp4" )
