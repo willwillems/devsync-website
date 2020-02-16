@@ -14,8 +14,9 @@
             autoplay
             muted
             loop
+            preload="metadata"
           )
-            source( :src="video.src" type="video/mp4" )
+            source( :src="video.src + '\#t=0.1'" type="video/mp4" )
           img.info-section__demo-img( src="img/demo-coming.png" v-show="activeSection === 3")
         ul.info-section__list
           li.info-section__list-item( @mouseover="selectSection(0)" :class="{'info-section__list-item--active': (activeSection === 0)}" )
