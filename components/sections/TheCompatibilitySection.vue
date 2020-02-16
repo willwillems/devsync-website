@@ -1,6 +1,9 @@
 <template lang="pug">
   section.section
     .section__body
+      .compatibility-host-indicator( title="For now..." )
+        img.compatibility-host-indicator__icon( src="img/icons/chrome.svg" )
+        img.compatibility-host-indicator__icon( src="img/icons/visual-studio-code.svg" )
       h1.section__title Verified Compatibility
       h2.section__sub-title.m-2 Devsync works with every bundeler that correctly generates sourcemaps. Not all do by default. We've tested some populair setups for compatibility.
       .compatibility-container
@@ -18,10 +21,6 @@
           .compatibility-indicator__title {{ indicator.title }}
           svg.compatibility-indicator__status( viewBox="0 0 10 10" )
             polygon( points="0,10 10,10 10,0" fill="currentColor" )
-    //- .flex.flex-row.items-center.justify-center.flex-wrap.m-4.max-w-4xl
-      img( src="img/icons/mac.svg" ).platform-logo.h-10.w-10.m-6.my-2
-      img( src="img/icons/windows.svg" ).platform-logo.h-10.w-10.m-6.my-2
-      img( src="img/icons/linux.svg" ).platform-logo.h-10.w-10.m-6.my-2
 </template>
 
 <script>
@@ -147,4 +146,14 @@ $screen-sm-min: 576px
   &__status
     @apply absolute bottom-0 right-0 h-4 w-4
 
+.compatibility-host-indicator
+  @apply relative h-10 w-24 m-4 flex flex-row items-center justify-center bg-gray-800 opacity-50 overflow-hidden
+  border-radius: 5px
+
+  &:hover
+    @apply opacity-100
+
+  &__icon
+    height: 50%
+    width: 50%
 </style>
