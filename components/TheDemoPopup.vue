@@ -34,7 +34,7 @@ const steps = [
   'Devsync syncs your edits with your code editor. To simulate that we\'ve created a little editor in the left corner of your screen.',
   'To keep it simple and limit the complexity of the demo we\'ve only ported our typography section. Read further to get started!',
   'To start editing CSS select an element on the page by clicking it. We\'ve already preselected the title of this page for you.',
-  'To modify or create a property just slect the relevant input and start typing. The colored border indicates an active input.',
+  'To modify or create a property just select the relevant input and start typing. The coloured border indicates an active input.',
   'Finally to delete a property hold CMD/CTRL and click the relevant input.'
 ]
 export default {
