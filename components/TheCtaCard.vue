@@ -19,7 +19,7 @@ export default {
   @apply relative flex flex-col justify-between items-start py-12 px-16 m-32 mt-0 rounded-lg text-left
   width: 1080px
   max-width: 100% 
-  background-image: linear-gradient(176deg, rgba(0,0,0,0.4) 0%, rgba(33,33,33,0.3) 100%), url(/img/cta-screenshot.webp), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
+  background-image: linear-gradient(176deg, rgba(0,0,0,0.4) 0%, rgba(33,33,33,0.3) 100%), url(/img/cta-screenshot.png), linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
   background-position: center, top 0 right -2rem, center
   background-repeat: no-repeat
   background-size: 100%, auto 100%, 100%
