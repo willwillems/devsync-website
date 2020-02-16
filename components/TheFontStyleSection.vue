@@ -85,6 +85,7 @@
           off-value="normal"
           style="flex-grow: 0;"
         )
+    TheDemoPopup
 </template>
 
 <script>
@@ -93,6 +94,8 @@ import reverse  from 'lodash/fp/reverse'
 import keys     from 'lodash/fp/keys' 
 import map      from 'lodash/fp/map' 
 import max      from 'lodash/fp/max'
+
+import TheDemoPopup from './TheDemoPopup.vue'
 
 import AppSectionHeader from './demo/AppSectionHeader.vue'
 import AppInput from './demo/AppInput.vue'
@@ -177,6 +180,7 @@ export const mapProps = process.client
 export default {
   name: 'Font-Style-Section',
   components: {
+    TheDemoPopup,
     AppSectionHeader,
     AppInput,
     AppInputSelect,

@@ -169,7 +169,7 @@ export default {
       width: 3.5rem 
       border-radius: 50%
       background-color: #1d2027
-      background-image: url("/img/fullscreen-icon.svg")
+      background-image: url("/img/play-icon.svg")
       background-size: 45%
       background-position: center
       background-repeat: no-repeat
