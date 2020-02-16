@@ -35,8 +35,8 @@
             h3.info-section__list-item__title No unmaintainable mystery CSS
             p
               | The CSS classes you edit are defined in your code. CSS is added in a logical manner but feel free to run something like prettier on save, remember you are still working in your editor!
-    video.info-section__video-player( v-if="videoIsFullScreen" :alt="fullScreenVideo.alt" autoplay controls )
-      source( :src="fullScreenVideo.src" type="video/mp4" )
+    video.info-section__video-player( v-if="videoIsFullScreen" :alt="fullScreenVideo.alt" autoplay controls preload="metadata" )
+      source( :src="fullScreenVideo.src + '\#t=0.1'" type="video/mp4" )
 </template>
 
 <script>
@@ -154,7 +154,7 @@ export default {
       background-color: #5FE4FF
   
   &__demo-container
-    @apply m-6 relative
+    @apply m-6 relative overflow-visible
     width: 30vw
 
     @media (max-width: 920px)
@@ -177,7 +177,6 @@ export default {
       pointer-events: none
 
   &__demo-img
-    position: relative
     float: right
     min-width: 120vh
     height: auto
