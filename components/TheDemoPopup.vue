@@ -58,7 +58,6 @@ export default {
     },
     closePopup () {
       this.$emit('close')
-      alert('close')
     }
   }
 }

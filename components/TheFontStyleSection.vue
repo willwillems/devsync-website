@@ -85,7 +85,7 @@
           off-value="normal"
           style="flex-grow: 0;"
         )
-    TheDemoPopup
+    TheDemoPopup( v-if="popupVisible" @close="closePopup")
 </template>
 
 <script>
@@ -191,6 +191,7 @@ export default {
   },
   data() {
     return {
+      popupVisible: true,
       activeElSelector: 'section-hero__title',
       sizeOptions,
       fontOptions,
@@ -268,6 +269,9 @@ white-space: ${this.whiteSpace};`
       if (e.srcElement.classList[0].includes('button')) return 
       this.activeElSelector = e.srcElement.classList[0]
       this.forceUpdate()
+    },
+    closePopup () {
+      this.popupVisible = false
     }
   }
 }
