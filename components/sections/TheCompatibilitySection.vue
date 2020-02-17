@@ -5,7 +5,7 @@
         img.compatibility-host-indicator__icon( src="img/icons/chrome.svg" )
         img.compatibility-host-indicator__icon( src="img/icons/visual-studio-code.svg" )
       h1.section__title Verified Compatibility
-      h2.section__sub-title.m-2 Devsync works with every bundeler that correctly generates sourcemaps. Not all do by default. We've tested some populair setups for compatibility.
+      h2.section__sub-title.m-2 Devsync works with every bundeler that correctly generates sourcemaps. Not all do by default. We've tested some popular setups for compatibility.
       .compatibility-container
         a.compatibility-indicator(
           v-for="indicator in compatibility"
