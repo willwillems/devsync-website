@@ -3,7 +3,7 @@
     h1.cta-card__title Get your DevSync license now.
     p.cta-card__body No hassle, 30 day money back guarantee.
     a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €39 <del class="small-del">€80</del>.
-    .cta-card__fliepeltje LAUNCH DISCOUNT
+    .cta-card__fliepeltje 50% LAUNCH DAY DISCOUNT
 </template>
 
 <script>
