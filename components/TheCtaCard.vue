@@ -1,8 +1,8 @@
 <template lang="pug">
   .cta-card( ref='cta' )
-    h1.cta-card__title Get your DevSync license now.
-    p.cta-card__body No hassle, 30 day money back guarantee.
-    a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €39 <del class="small-del">€79</del>.
+    h1.cta-card__title Get your Devsync license now.
+    p.cta-card__body Pay once, 30 day money back guarantee.
+    a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €39 <del class="small-del">€79</del>
     img.cta-card__sticker( src="/img/money-cat.webp" alt="product hunt 50% discount" onerror="this.onerror=null; this.src='/img/money-cat.png'" )
 </template>
 
