@@ -1,7 +1,7 @@
 <template lang="pug">
   section.section.section--full.section-hero#hero
     .section__body
-      h1.section-hero__title#hero-title Stop screwing around with your CSS. Perfect your design visually.
+      h1.section-hero__title#hero-title Visually edit CSS with our Chrome extension. Live-sync the result with your code editor.
       h2.section__sub-title.section-hero__sub-title Design quicker. Edit your CSS without writing CSS. Devsync finds your CSS and edits it through your editor. Live.
       .m-2
         button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" ) {{ demoActive ? 'Deactivate Demo' : 'Activate Demo' }}
