@@ -2,8 +2,8 @@
   .cta-card( ref='cta' )
     h1.cta-card__title Get your DevSync license now.
     p.cta-card__body No hassle, 30 day money back guarantee.
-    a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €39 <del class="small-del">€80</del>.
-    .cta-card__fliepeltje 50% LAUNCH DAY DISCOUNT
+    a.cta-card__button( href="https://gum.co/qnXnf" ) Buy €39 <del class="small-del">€79</del>.
+    img.cta-card__sticker( src="/img/money-cat.webp" alt="product hunt 50% discount" onerror="this.onerror=null; this.src='/img/money-cat.png'" )
 </template>
 
 <script>
@@ -96,18 +96,15 @@ export default {
     &:active
       @apply bg-white text-gray-900
 
-  &__fliepeltje
+  &__sticker
     position: absolute
-    top: 1rem
-    right: 0
-    padding: .5em 1.5em
-    // color: #71490A
-    color: transparent
-    font-size: 1.25rem
-    font-weight: 900
-    background-image: url("/img/fliepeltje.svg")
-    background-repeat: no-repeat
-    background-size: 100% 100%
-    background-position: center
+    top: .5rem
+    right: -33px
+    height: 60%
+
+    @media (max-width: 920px)
+      top: -3rem
+      right: -1rem
+      height: 6rem
 
 </style>
