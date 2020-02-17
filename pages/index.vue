@@ -166,6 +166,9 @@ $screen-sm-min: 576px
       @apply items-end text-right
       width: 32rem
 
+      @include sm
+        @apply items-start text-left
+
   &__title
     @apply font-bold m-1 max-w-3xl
     font-size: 3.2rem

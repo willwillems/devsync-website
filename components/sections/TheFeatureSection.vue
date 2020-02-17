@@ -79,11 +79,13 @@ $screen-sm-min: 576px
       // border: 2px solid transparent
 
   &--right
-    @apply ml-0 mr-5
+    // only on desktop
+    @media (min-width: 600px)
+      @apply ml-0 mr-5
 
-    li::before
-      left: unset
-      right: -1.25rem
+      li::before
+        left: unset
+        right: -1.25rem
 
 .detail-list--purple li::before
   background-color: #1e9aff
