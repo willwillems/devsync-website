@@ -14,7 +14,9 @@
             autoplay
             muted
             loop
+            :poster="video.coverImg"
             preload="metadata"
+            :style="`background-image: url('${video.coverImg}')`"
           )
             source( :src="video.src + '\#t=0.1'" type="video/mp4" )
           img.info-section__demo-img( src="img/demo-coming.png" v-show="activeSection === 3")
@@ -41,9 +43,9 @@
 
 <script>
 const videos = [
-  { src: 'video/demo-visual-edit.mp4',  alt: 'Vidual editing demo' },
-  { src: 'video/demo-editor-sync.mp4',  alt: 'editor sync demo' },
-  { src: 'video/demo-edit-any.mp4',     alt: 'Edit any demo' },
+  { src: 'video/demo-visual-edit.mp4',  alt: 'Vidual editing demo', coverImg: '/img/preview-visual-edit.jpg' },
+  { src: 'video/demo-editor-sync.mp4',  alt: 'editor sync demo',    coverImg: '/img/preview-editor-sync.jpg' },
+  { src: 'video/demo-edit-any.mp4',     alt: 'Edit any demo',       coverImg: '/img/preview-edit-any.jpg' },
 ]
 
 export default {
@@ -179,11 +181,15 @@ export default {
   &__demo-img
     float: right
     min-width: 120vh
-    height: auto
+    height: 100%
+    width: 100%
     border-radius: 4px
     box-shadow: 0 0 1rem 0.5rem #11111130
     background-color: #303030
     cursor: pointer // click to full screen
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
 
   &__video-player
     position: fixed;
