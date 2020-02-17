@@ -29,7 +29,7 @@
           li.info-section__list-item( @mouseover="selectSection(1)" :class="{'info-section__list-item--active': (activeSection === 1)}" )
             h3.info-section__list-item__title Sync with your editor
             p
-              | Your edits are applied live trough a low-latency connection with your editor and injected in the webpage trough the Chrome debugger. All without reloading for maximum speed.
+              | Your edits are applied live through a low-latency connection with your editor and injected in the webpage through the Chrome debugger. All without reloading for maximum speed.
           li.info-section__list-item( @mouseover="selectSection(2)" :class="{'info-section__list-item--active': (activeSection === 2)}" )
             h3.info-section__list-item__title Edit any website
             p
