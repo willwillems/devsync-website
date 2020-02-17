@@ -98,8 +98,8 @@ export default {
 
   &__sticker
     position: absolute
-    top: .5rem
-    right: -33px
+    top: -1.25rem
+    right: -2rem
     height: 60%
 
     @media (max-width: 920px)
