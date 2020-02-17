@@ -14,9 +14,11 @@
         li.footer__link
           a( href="/twitter" ) Twitter
         li.footer__link
-          a( href="/faq" ) FAQ
-        li.footer__link
-          a( href="/tuts" ) Tutorials
+          a( href="https://docs.devsync.co" ) Docs
+        //- li.footer__link
+        //-   a( href="/faq" ) FAQ
+        //- li.footer__link
+        //-   a( href="/tuts" ) Tutorials
     .demo-overlay( v-if="overlayPosition" :style="overlayStyle" )
     transition( name="slide" )
       .demo( v-if="demoActive" )
