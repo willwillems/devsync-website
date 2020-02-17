@@ -11,6 +11,7 @@
             @click="showFullScreenVideo(i, $event)"
             :alt="video.alt"
             :key="i"
+            :id="`video_${i}`"
             autoplay
             muted
             loop
@@ -60,6 +61,10 @@ export default {
   },
   mounted () {
     this.selectSection(0, 3000)
+    // play videos after 5s
+    window.setTimeout(() => {
+      [0,1,2].forEach((i) => document.getElementById(`video_${i}`).play())
+    }, 5000)
   },
   computed: {
     videoIsFullScreen () {
