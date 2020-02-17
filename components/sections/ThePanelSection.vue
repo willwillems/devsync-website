@@ -181,7 +181,8 @@ export default {
   &__demo-img
     float: right
     min-width: 120vh
-    height: auto
+    height: 100%
+    width: 100%
     border-radius: 4px
     box-shadow: 0 0 1rem 0.5rem #11111130
     background-color: #303030
