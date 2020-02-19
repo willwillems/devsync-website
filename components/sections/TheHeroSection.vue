@@ -4,7 +4,7 @@
       h1.section-hero__title#hero-title Visually edit CSS with our Chrome extension. Live-sync the result with your code editor.
       h2.section__sub-title.section-hero__sub-title Design quicker. Edit your CSS without writing CSS. Devsync finds your CSS and edits it through your editor. Live.
       .m-2
-        button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" ) {{ demoActive ? 'Deactivate Demo' : 'Try Live Demo' }}
+        button.section-hero__button.section-hero__button--bounce( @click="toggleDemo" :disabled="buttonDisabled" ) {{ demoActive ? 'Deactivate Demo' : 'Try Live Demo' }}
         button.section-hero__button.section-hero__button--sec( @click="goToInfo" ) Read more
       p.section-hero__sub-text 30-Day Money-Back Guarantee
     img.section-hero__browser-img( src="img/browser-preview.webp" alt="Browser preview" onerror="this.onerror=null; this.src='img/browser-preview.png'" )
@@ -92,9 +92,15 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      buttonDisabled: true
+    }
+  },
   mounted () {
     require('particles.js')
     window.particlesJS('hero', particleConfig)
+    window.addEventListener('load', () => { this.buttonDisabled = false }, { once: true })
   },
   methods: {
     toggleDemo() {
@@ -127,6 +133,10 @@ export default {
     border-radius: 5px
     background-image: linear-gradient(149deg, #588BFFDD 0%, #B745F2DD 98%)
     transition: transform .3s ease-out
+
+    &:disabled, &[disabled]
+      filter: grayscale(1)
+      cursor: not-allowed
 
     &:hover
       transform: scale(1.05)
