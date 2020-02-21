@@ -136,7 +136,7 @@ export default {
 
     &:disabled, &[disabled]
       filter: grayscale(1)
-      cursor: not-allowed
+      cursor: wait
 
     &:hover
       transform: scale(1.05)
