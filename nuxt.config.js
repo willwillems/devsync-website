@@ -7,7 +7,6 @@ export default {
   head: {
     title: 'Devsync | Visually edit your CSS in-browser.',
     script: [
-      { src: '/js/drift.js'},
       { src: '/js/sa.js'},
       { async: '', defer: '', src: "https://sa.devsync.co/latest.js", body: true }
     ],
